@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title>Forecasts</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,9 +11,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="h-full bg-blue-50">
+    <main class="min-h-full flex justify-center items-center">
+     <div class="pb-80">
       <%= yield %>
+     </div>
     </main>
   </body>
 </html>
