@@ -1,11 +1,13 @@
 
 <div class="border border-gray-300 rounded-xl bg-white shadow-md">
-  <div class="p-8 flex flex-col items-center gap-12">
-<h1 class="font-bold text-3xl text-gray-800">Weather Forecast</h1>
-
-    <form id="form1">
-    <input type="text" placeholder="11206">
-      <button type="submit" class="inline-block ml-4 border border-gray-300 py-2 px-4">Submit<button>
+  <div class="px-20 py-12 flex flex-col items-center gap-8">
+    <h1 class="pb-4 text-4xl font-bold text-gray-800 tracking-tight">Weather Forecast</h1>
+    <form id="form1" class="flex flex-col justify-between min-h-36">
+      <div>
+        <label for="zipcode" class="block font-bold pb-1 text-gray-800">zip code</label>
+        <input id="zipcode" type="text" class="rounded" placeholder="11206">
+      </div>
+      <button type="submit" class="block border border-gray-300 py-2 px-4 rounded">Submit</button>
     </form>
   </div>
 </div>
