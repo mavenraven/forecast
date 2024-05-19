@@ -10,10 +10,10 @@
   }
 */
     .forecast-grid-day{
-        @apply text-gray-500;
+        @apply text-gray-500 text-3xl;
     }
     .forecast-grid-temp{
-        @apply text-gray-500;
+        @apply text-gray-500 text-3xl;
     }
 }
 
