@@ -10,10 +10,14 @@
   }
 */
     .forecast-day{
-        @apply text-gray-500 text-3xl;
+        @apply text-gray-400 text-lg;
     }
     .forecast-temp{
-        @apply text-gray-500 text-3xl;
+        @apply text-gray-400 text-lg;
+    }
+
+    .forecast-container{
+        @apply flex flex-col items-center justify-center w-24;
     }
 }
 
