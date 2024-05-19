@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html class="h-full">
-  <head>
-    <title>Forecasts</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+<head>
+  <title>Forecasts</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body class="h-full bg-blue-50 bg-[url(https://www.transparenttextures.com/patterns/cream-pixels.png)]">
-    <main class="min-h-full flex justify-center items-center">
-     <div class="pb-40">
-      <%= yield %>
-     </div>
-    </main>
-  </body>
+<body class="h-full bg-blue-50 bg-[url(https://www.transparenttextures.com/patterns/cream-pixels.png)]">
+<main class="min-h-full flex justify-center items-center">
+  <div class="pb-40">
+    <div class="border border-gray-300 rounded-xl bg-white shadow-lg">
+      <div class="px-16 py-16 flex flex-col items-center gap-16">
+        <div>
+          <h1 class="text-4xl font-bold text-gray-800 tracking-tight">Weather</h1>
+          <h1 class="text-4xl  text-gray-800 tracking-tight">Forecast</h1>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
 </html>
