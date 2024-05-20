@@ -1,7 +1,11 @@
-<form id="form1" class="flex flex-col justify-between pt-16 pb-12">
-  <div class="pb-4">
+<span class="pb-2 text-red-600 text-sm pt-14 invisible"> Unable to retrieve weather information.</span>
+<form id="form1" class="flex flex-col justify-between pt-2 pb-12">
+  <div class="">
     <label for="address" class="block font-bold pb-2 text-gray-800 text-sm tracking-tighter">address</label>
     <input id="address" type="text" class="rounded placeholder-gray-300 w-full border-gray-300 tracking-tighter" placeholder="1 Apple Park Way. Cupertino, CA 95014">
   </div>
-  <button type="submit" class="block hover:from-violet-800 hover:to-violet-700 active:from-violet-900 active:to-violet-800 active:scale-[.997] bg-gradient-to-t from-violet-700 to-violet-600 text-gray-100 py-2 px-36 rounded tracking-tighter">submit</button>
+  <span class="pt-2 pb-2 text-red-600 text-sm hidden"> Unable to parse address.</span>
+  <div class="pt-4">
+    <button type="submit" class="block hover:from-violet-800 hover:to-violet-700 active:from-violet-900 active:to-violet-800 active:scale-[.997] bg-gradient-to-t from-violet-700 to-violet-600 text-gray-100 py-2 px-36 rounded tracking-tighter">submit</button>
+  </div>
 </form>
