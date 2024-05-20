@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe "Forecasts", type: :request do
   describe "GET index" do
@@ -12,6 +11,7 @@ RSpec.describe "Forecasts", type: :request do
   describe "GET show" do
     it "retrieves the weather for a given zip code" do
       get "/95014"
+
       expect(response.body).to include("Cupertino")
       expect(response.body).to include("75°")
     end

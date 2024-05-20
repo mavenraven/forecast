@@ -96,6 +96,7 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    csv (3.3.0)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -109,6 +110,9 @@ GEM
     eventmachine (1.2.7)
     ffi (1.16.3)
     formatador (1.1.0)
+    geocoder (1.8.3)
+      base64 (>= 0.1.0)
+      csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     guard (2.18.1)
@@ -324,6 +328,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  geocoder
   guard-livereload
   importmap-rails
   jbuilder
