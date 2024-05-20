@@ -13,11 +13,11 @@
         @apply text-gray-400 text-lg;
     }
     .forecast-temp{
-        @apply text-gray-400 text-lg;
+        @apply text-gray-500 text-lg;
     }
 
     .forecast-negative{
-        @apply text-gray-400 text-lg invisible;
+        @apply text-gray-500 text-lg invisible;
     }
 
     .forecast-container{
