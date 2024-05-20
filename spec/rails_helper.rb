@@ -22,10 +22,13 @@ require 'rspec/rails'
 #
 # Rails.root.glob('spec/support/**/*.rb').sort.each { |f| require f }
 
+require 'capybara/rspec'
+
 RSpec.configure do |config|
   # Remove this line to enable support for ActiveRecord
   config.use_active_record = false
 
+  config.include Capybara::DSL
   # If you enable ActiveRecord support you should uncomment these lines,
   # note if you'd prefer not to run each example within a transaction, you
   # should set use_transactional_fixtures to false.
