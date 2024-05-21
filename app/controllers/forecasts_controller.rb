@@ -2,12 +2,11 @@ require 'pry'
 
 class ForecastsController < ApplicationController
   def index
-    @address_form = AddressForm.new()
+    @address_form = AddressForm.new
   end
 
   def create
     @address_form = AddressForm.new(address: params[:address])
-    binding.pry
 
     if @address_form.valid?
       throw 'hi'
