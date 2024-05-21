@@ -19,6 +19,11 @@ class ForecastsController < ApplicationController
   def show
     @address = Address.new(value: params[:id])
 
+
+    if
+    Rails.cache.fetch()
+
+
     #if @address_form.valid?
 
  # else
