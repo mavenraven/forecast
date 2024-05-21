@@ -44,14 +44,14 @@ describe "GET /<zip_code>" do
   end
 
   it "works correctly with address(es) that have a higher confidence than any US address" do
-    #    VCR.use_cassette("high_confidence_non_us") do
+    VCR.use_cassette("high_confidence_non_us") do
 
       get "/10001"
 
       expect(response.body).to include("New York")
       temp = Nokogiri::HTML(response.body).css("#temperature").text
       expect(temp).to eq("81")
-    #end
+    end
   end
 
   it "redirects to index if not a valid 5 digit zip code" do

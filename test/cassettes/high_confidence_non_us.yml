@@ -1,0 +1,692 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.opencagedata.com/geocode/v1/json?key=<OPENCAGEDATA KEY>&language=en&q=10001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 May 2024 17:11:02 GMT
+      Server:
+      - Apache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Ratelimit-Limit:
+      - '2500'
+      X-Ratelimit-Remaining:
+      - '2343'
+      X-Ratelimit-Reset:
+      - '1716336000'
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '4382'
+      Content-Type:
+      - application/json; charset=utf-8
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"documentation":"https://opencagedata.com/api","licenses":[{"name":"see
+        attribution guide","url":"https://opencagedata.com/credits"}],"rate":{"limit":2500,"remaining":2343,"reset":1716336000},"results":[{"annotations":{"DMS":{"lat":"39\u00b0
+        30'' 2.65536'''' N","lng":"6\u00b0 24'' 20.84292'''' W"},"MGRS":"29SQD2305975559","Maidenhead":"IM69tm10he","Mercator":{"x":-713089.246,"y":4766469.833},"NUTS":{"NUTS0":{"code":"ES"},"NUTS1":{"code":"ES4"},"NUTS2":{"code":"ES43"},"NUTS3":{"code":"ES432"}},"OSM":{"edit_url":"https://www.openstreetmap.org/edit?relation=14450043#map=17/39.50074/-6.40579","note_url":"https://www.openstreetmap.org/note/new#map=17/39.50074/-6.40579&layers=N","url":"https://www.openstreetmap.org/?mlat=39.50074&mlon=-6.40579#map=17/39.50074/-6.40579"},"UN_M49":{"regions":{"ES":"724","EUROPE":"150","SOUTHERN_EUROPE":"039","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":34,"currency":{"alternate_symbols":[],"decimal_mark":",","html_entity":"\u20ac","iso_code":"EUR","iso_numeric":"978","name":"Euro","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"\u20ac","symbol_first":0,"thousands_separator":"."},"flag":"\ud83c\uddea\ud83c\uddf8","geohash":"ez52wnzkqr1n23s34zbe","qibla":100.76,"roadinfo":{"drive_on":"right","speed_in":"km/h"},"sun":{"rise":{"apparent":1716268080,"astronomical":1716261360,"civil":1716266220,"nautical":1716263880},"set":{"apparent":1716320220,"astronomical":1716327000,"civil":1716322080,"nautical":1716324420}},"timezone":{"name":"Europe/Madrid","now_in_dst":1,"offset_sec":7200,"offset_string":"+0200","short_name":"CEST"},"what3words":{"words":"mods.defects.powered"}},"bounds":{"northeast":{"lat":39.5007876,"lng":-6.4057397},"southwest":{"lat":39.5006876,"lng":-6.4058397}},"components":{"ISO_3166-1_alpha-2":"ES","ISO_3166-1_alpha-3":"ESP","ISO_3166-2":["ES-EX","ES-CC"],"_category":"place","_normalized_city":"C\u00e1ceres","_type":"city","city":"C\u00e1ceres","continent":"Europe","country":"Spain","country_code":"es","political_union":"European
+        Union","postcode":"10001","province":"C\u00e1ceres","state":"Extremadura","state_code":"EX"},"confidence":9,"formatted":"C\u00e1ceres,
+        Extremadura, Spain","geometry":{"lat":39.5007376,"lng":-6.4057897}},{"annotations":{"DMS":{"lat":"40\u00b0
+        44'' 54.24000'''' N","lng":"73\u00b0 59'' 48.12000'''' W"},"FIPS":{"county":"36061","state":"36"},"MGRS":"18TWL8469911311","Maidenhead":"FN30ar09jo","Mercator":{"x":-8237274.964,"y":4947404.291},"OSM":{"note_url":"https://www.openstreetmap.org/note/new#map=17/40.74840/-73.99670&layers=N","url":"https://www.openstreetmap.org/?mlat=40.74840&mlon=-73.99670#map=17/40.74840/-73.99670"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"dr5ru4j0xum65gdrfmu9","qibla":58.49,"roadinfo":{"drive_on":"right","speed_in":"mph"},"sun":{"rise":{"apparent":1716284040,"astronomical":1716277080,"civil":1716282180,"nautical":1716279780},"set":{"apparent":1716250320,"astronomical":1716257280,"civil":1716252180,"nautical":1716254580}},"timezone":{"name":"America/New_York","now_in_dst":1,"offset_sec":-14400,"offset_string":"-0400","short_name":"EDT"},"what3words":{"words":"apple.stow.broad"}},"bounds":{"northeast":{"lat":40.759731,"lng":-73.984076},"southwest":{"lat":40.743451,"lng":-74.008621}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-NY"],"_category":"postcode","_type":"postcode","continent":"North
+        America","country":"United States of America","country_code":"us","county":"New
+        York","postcode":"10001","state":"New York","state_code":"NY"},"confidence":7,"formatted":"New
+        York, NY 10001, United States of America","geometry":{"lat":40.7484,"lng":-73.9967}}],"status":{"code":200,"message":"OK"},"stay_informed":{"blog":"https://blog.opencagedata.com","mastodon":"https://en.osm.town/@opencage"},"thanks":"For
+        using an OpenCage API","timestamp":{"created_http":"Tue, 21 May 2024 17:11:02
+        GMT","created_unix":1716311462},"total_results":2}'
+  recorded_at: Tue, 21 May 2024 17:11:02 GMT
+- request:
+    method: get
+    uri: https://api.weather.gov/points/40.7484,-73.9967
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.20.1
+      Content-Type:
+      - application/geo+json
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Correlation-Id, X-Request-Id, X-Server-Id
+      X-Request-Id:
+      - 13c3f0dc-5e02-40a9-bafc-dabf11dc6fcc
+      X-Correlation-Id:
+      - de90012
+      X-Server-Id:
+      - vm-lnx-nids-apiapp2.ncep.noaa.gov
+      Vary:
+      - Accept,Feature-Flags,Accept-Language
+      - Accept-Encoding
+      Cache-Control:
+      - public, max-age=86228, s-maxage=120
+      Expires:
+      - Wed, 22 May 2024 17:08:10 GMT
+      Date:
+      - Tue, 21 May 2024 17:11:02 GMT
+      Content-Length:
+      - '3097'
+      Connection:
+      - keep-alive
+      X-Edge-Request-Id:
+      - 2c2be6a9
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains ; preload
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "@context": [
+                "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "s": "https://schema.org/",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#",
+                    "geometry": {
+                        "@id": "s:GeoCoordinates",
+                        "@type": "geo:wktLiteral"
+                    },
+                    "city": "s:addressLocality",
+                    "state": "s:addressRegion",
+                    "distance": {
+                        "@id": "s:Distance",
+                        "@type": "s:QuantitativeValue"
+                    },
+                    "bearing": {
+                        "@type": "s:QuantitativeValue"
+                    },
+                    "value": {
+                        "@id": "s:value"
+                    },
+                    "unitCode": {
+                        "@id": "s:unitCode",
+                        "@type": "@id"
+                    },
+                    "forecastOffice": {
+                        "@type": "@id"
+                    },
+                    "forecastGridData": {
+                        "@type": "@id"
+                    },
+                    "publicZone": {
+                        "@type": "@id"
+                    },
+                    "county": {
+                        "@type": "@id"
+                    }
+                }
+            ],
+            "id": "https://api.weather.gov/points/40.7483999,-73.9967",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.996700000000004,
+                    40.748399900000003
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/points/40.7483999,-73.9967",
+                "@type": "wx:Point",
+                "cwa": "OKX",
+                "forecastOffice": "https://api.weather.gov/offices/OKX",
+                "gridId": "OKX",
+                "gridX": 33,
+                "gridY": 37,
+                "forecast": "https://api.weather.gov/gridpoints/OKX/33,37/forecast",
+                "forecastHourly": "https://api.weather.gov/gridpoints/OKX/33,37/forecast/hourly",
+                "forecastGridData": "https://api.weather.gov/gridpoints/OKX/33,37",
+                "observationStations": "https://api.weather.gov/gridpoints/OKX/33,37/stations",
+                "relativeLocation": {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            -74.0279259,
+                            40.745251000000003
+                        ]
+                    },
+                    "properties": {
+                        "city": "Hoboken",
+                        "state": "NJ",
+                        "distance": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 2653.7183696678999
+                        },
+                        "bearing": {
+                            "unitCode": "wmoUnit:degree_(angle)",
+                            "value": 82
+                        }
+                    }
+                },
+                "forecastZone": "https://api.weather.gov/zones/forecast/NYZ072",
+                "county": "https://api.weather.gov/zones/county/NYC061",
+                "fireWeatherZone": "https://api.weather.gov/zones/fire/NYZ212",
+                "timeZone": "America/New_York",
+                "radarStation": "KDIX"
+            }
+        }
+  recorded_at: Tue, 21 May 2024 17:11:02 GMT
+- request:
+    method: get
+    uri: https://api.weather.gov/gridpoints/OKX/33,37/forecast
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.20.1
+      Content-Type:
+      - application/geo+json
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Correlation-Id, X-Request-Id, X-Server-Id
+      X-Request-Id:
+      - d857f5e7-d786-4e0c-90e0-29e1867d51d1
+      X-Correlation-Id:
+      - 7f14632f
+      X-Server-Id:
+      - vm-lnx-nids-apiapp13.ncep.noaa.gov
+      Vary:
+      - Accept,Feature-Flags,Accept-Language
+      - Accept-Encoding
+      Cache-Control:
+      - public, max-age=3586, s-maxage=3600
+      Expires:
+      - Tue, 21 May 2024 18:10:48 GMT
+      Date:
+      - Tue, 21 May 2024 17:11:02 GMT
+      Content-Length:
+      - '18356'
+      Connection:
+      - keep-alive
+      X-Edge-Request-Id:
+      - 2c2be721
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains ; preload
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "@context": [
+                "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#"
+                }
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -74.016170099999997,
+                            40.770397299999999
+                        ],
+                        [
+                            -74.020633799999999,
+                            40.748725399999998
+                        ],
+                        [
+                            -73.992012399999993,
+                            40.745340499999998
+                        ],
+                        [
+                            -73.987542899999994,
+                            40.767012199999996
+                        ],
+                        [
+                            -74.016170099999997,
+                            40.770397299999999
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "updated": "2024-05-21T16:11:27+00:00",
+                "units": "us",
+                "forecastGenerator": "BaselineForecastGenerator",
+                "generatedAt": "2024-05-21T17:10:48+00:00",
+                "updateTime": "2024-05-21T16:11:27+00:00",
+                "validTimes": "2024-05-21T10:00:00+00:00/P7DT15H",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 2.1335999999999999
+                },
+                "periods": [
+                    {
+                        "number": 1,
+                        "name": "This Afternoon",
+                        "startTime": "2024-05-21T13:00:00-04:00",
+                        "endTime": "2024-05-21T18:00:00-04:00",
+                        "isDaytime": true,
+                        "temperature": 81,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": "falling",
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": null
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 16.111111111111111
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 56
+                        },
+                        "windSpeed": "13 mph",
+                        "windDirection": "S",
+                        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                        "shortForecast": "Sunny",
+                        "detailedForecast": "Sunny. High near 81, with temperatures falling to around 78 in the afternoon. South wind around 13 mph."
+                    },
+                    {
+                        "number": 2,
+                        "name": "Tonight",
+                        "startTime": "2024-05-21T18:00:00-04:00",
+                        "endTime": "2024-05-22T06:00:00-04:00",
+                        "isDaytime": false,
+                        "temperature": 63,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": null
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 15.555555555555555
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 82
+                        },
+                        "windSpeed": "5 to 13 mph",
+                        "windDirection": "S",
+                        "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                        "shortForecast": "Partly Cloudy",
+                        "detailedForecast": "Partly cloudy, with a low around 63. South wind 5 to 13 mph."
+                    },
+                    {
+                        "number": 3,
+                        "name": "Wednesday",
+                        "startTime": "2024-05-22T06:00:00-04:00",
+                        "endTime": "2024-05-22T18:00:00-04:00",
+                        "isDaytime": true,
+                        "temperature": 86,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": "falling",
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": null
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 16.666666666666668
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 83
+                        },
+                        "windSpeed": "6 to 12 mph",
+                        "windDirection": "S",
+                        "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                        "shortForecast": "Sunny",
+                        "detailedForecast": "Sunny. High near 86, with temperatures falling to around 84 in the afternoon. South wind 6 to 12 mph."
+                    },
+                    {
+                        "number": 4,
+                        "name": "Wednesday Night",
+                        "startTime": "2024-05-22T18:00:00-04:00",
+                        "endTime": "2024-05-23T06:00:00-04:00",
+                        "isDaytime": false,
+                        "temperature": 69,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 20
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 17.777777777777779
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 84
+                        },
+                        "windSpeed": "7 to 12 mph",
+                        "windDirection": "S",
+                        "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20?size=medium",
+                        "shortForecast": "Slight Chance Showers And Thunderstorms",
+                        "detailedForecast": "A slight chance of showers and thunderstorms after 8pm. Partly cloudy, with a low around 69. South wind 7 to 12 mph. Chance of precipitation is 20%."
+                    },
+                    {
+                        "number": 5,
+                        "name": "Thursday",
+                        "startTime": "2024-05-23T06:00:00-04:00",
+                        "endTime": "2024-05-23T18:00:00-04:00",
+                        "isDaytime": true,
+                        "temperature": 89,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": "falling",
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 50
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 18.888888888888889
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 84
+                        },
+                        "windSpeed": "7 to 10 mph",
+                        "windDirection": "SW",
+                        "icon": "https://api.weather.gov/icons/land/day/tsra_hi,20/tsra_hi,50?size=medium",
+                        "shortForecast": "Chance Showers And Thunderstorms",
+                        "detailedForecast": "A chance of showers and thunderstorms. Partly sunny. High near 89, with temperatures falling to around 80 in the afternoon. Southwest wind 7 to 10 mph. Chance of precipitation is 50%. New rainfall amounts between a tenth and quarter of an inch possible."
+                    },
+                    {
+                        "number": 6,
+                        "name": "Thursday Night",
+                        "startTime": "2024-05-23T18:00:00-04:00",
+                        "endTime": "2024-05-24T06:00:00-04:00",
+                        "isDaytime": false,
+                        "temperature": 66,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 50
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 18.888888888888889
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 90
+                        },
+                        "windSpeed": "6 to 9 mph",
+                        "windDirection": "W",
+                        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,50/tsra_sct,40?size=medium",
+                        "shortForecast": "Chance Showers And Thunderstorms",
+                        "detailedForecast": "A chance of showers and thunderstorms before 11pm, then a chance of showers and thunderstorms. Mostly cloudy, with a low around 66. Chance of precipitation is 50%. New rainfall amounts between a quarter and half of an inch possible."
+                    },
+                    {
+                        "number": 7,
+                        "name": "Friday",
+                        "startTime": "2024-05-24T06:00:00-04:00",
+                        "endTime": "2024-05-24T18:00:00-04:00",
+                        "isDaytime": true,
+                        "temperature": 84,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 30
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 17.222222222222221
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 90
+                        },
+                        "windSpeed": "7 mph",
+                        "windDirection": "W",
+                        "icon": "https://api.weather.gov/icons/land/day/rain_showers,30/bkn?size=medium",
+                        "shortForecast": "Chance Rain Showers then Partly Sunny",
+                        "detailedForecast": "A chance of rain showers before 8am. Partly sunny, with a high near 84. Chance of precipitation is 30%."
+                    },
+                    {
+                        "number": 8,
+                        "name": "Friday Night",
+                        "startTime": "2024-05-24T18:00:00-04:00",
+                        "endTime": "2024-05-25T06:00:00-04:00",
+                        "isDaytime": false,
+                        "temperature": 63,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": null
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 14.444444444444445
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 84
+                        },
+                        "windSpeed": "7 mph",
+                        "windDirection": "W",
+                        "icon": "https://api.weather.gov/icons/land/night/tsra_hi?size=medium",
+                        "shortForecast": "Slight Chance Showers And Thunderstorms",
+                        "detailedForecast": "A slight chance of showers and thunderstorms after 8pm. Mostly cloudy, with a low around 63."
+                    },
+                    {
+                        "number": 9,
+                        "name": "Saturday",
+                        "startTime": "2024-05-25T06:00:00-04:00",
+                        "endTime": "2024-05-25T18:00:00-04:00",
+                        "isDaytime": true,
+                        "temperature": 78,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 30
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 14.444444444444445
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 84
+                        },
+                        "windSpeed": "5 to 8 mph",
+                        "windDirection": "E",
+                        "icon": "https://api.weather.gov/icons/land/day/tsra_hi/tsra_hi,30?size=medium",
+                        "shortForecast": "Chance Showers And Thunderstorms",
+                        "detailedForecast": "A chance of showers and thunderstorms. Partly sunny, with a high near 78. Chance of precipitation is 30%."
+                    },
+                    {
+                        "number": 10,
+                        "name": "Saturday Night",
+                        "startTime": "2024-05-25T18:00:00-04:00",
+                        "endTime": "2024-05-26T06:00:00-04:00",
+                        "isDaytime": false,
+                        "temperature": 62,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 30
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 13.888888888888889
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 81
+                        },
+                        "windSpeed": "7 mph",
+                        "windDirection": "E",
+                        "icon": "https://api.weather.gov/icons/land/night/rain_showers,30?size=medium",
+                        "shortForecast": "Chance Rain Showers",
+                        "detailedForecast": "A chance of rain showers. Mostly cloudy, with a low around 62. Chance of precipitation is 30%."
+                    },
+                    {
+                        "number": 11,
+                        "name": "Sunday",
+                        "startTime": "2024-05-26T06:00:00-04:00",
+                        "endTime": "2024-05-26T18:00:00-04:00",
+                        "isDaytime": true,
+                        "temperature": 76,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 30
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 13.888888888888889
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 81
+                        },
+                        "windSpeed": "6 to 10 mph",
+                        "windDirection": "E",
+                        "icon": "https://api.weather.gov/icons/land/day/rain_showers/rain_showers,30?size=medium",
+                        "shortForecast": "Chance Rain Showers",
+                        "detailedForecast": "A chance of rain showers. Partly sunny, with a high near 76. Chance of precipitation is 30%."
+                    },
+                    {
+                        "number": 12,
+                        "name": "Sunday Night",
+                        "startTime": "2024-05-26T18:00:00-04:00",
+                        "endTime": "2024-05-27T06:00:00-04:00",
+                        "isDaytime": false,
+                        "temperature": 62,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 40
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 13.333333333333334
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 81
+                        },
+                        "windSpeed": "6 to 9 mph",
+                        "windDirection": "E",
+                        "icon": "https://api.weather.gov/icons/land/night/rain_showers,30/rain_showers,40?size=medium",
+                        "shortForecast": "Chance Rain Showers",
+                        "detailedForecast": "A chance of rain showers. Mostly cloudy, with a low around 62. Chance of precipitation is 40%."
+                    },
+                    {
+                        "number": 13,
+                        "name": "Memorial Day",
+                        "startTime": "2024-05-27T06:00:00-04:00",
+                        "endTime": "2024-05-27T18:00:00-04:00",
+                        "isDaytime": true,
+                        "temperature": 75,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 40
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 14.444444444444445
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 81
+                        },
+                        "windSpeed": "7 to 10 mph",
+                        "windDirection": "SE",
+                        "icon": "https://api.weather.gov/icons/land/day/rain_showers,40/tsra_sct,40?size=medium",
+                        "shortForecast": "Chance Rain Showers",
+                        "detailedForecast": "A chance of rain showers before 2pm, then a chance of showers and thunderstorms. Mostly cloudy, with a high near 75. Chance of precipitation is 40%."
+                    },
+                    {
+                        "number": 14,
+                        "name": "Monday Night",
+                        "startTime": "2024-05-27T18:00:00-04:00",
+                        "endTime": "2024-05-28T06:00:00-04:00",
+                        "isDaytime": false,
+                        "temperature": 62,
+                        "temperatureUnit": "F",
+                        "temperatureTrend": null,
+                        "probabilityOfPrecipitation": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 40
+                        },
+                        "dewpoint": {
+                            "unitCode": "wmoUnit:degC",
+                            "value": 14.444444444444445
+                        },
+                        "relativeHumidity": {
+                            "unitCode": "wmoUnit:percent",
+                            "value": 87
+                        },
+                        "windSpeed": "6 to 9 mph",
+                        "windDirection": "S",
+                        "icon": "https://api.weather.gov/icons/land/night/tsra_sct,40?size=medium",
+                        "shortForecast": "Chance Showers And Thunderstorms",
+                        "detailedForecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 62. Chance of precipitation is 40%."
+                    }
+                ]
+            }
+        }
+  recorded_at: Tue, 21 May 2024 17:11:02 GMT
+recorded_with: VCR 6.2.0
