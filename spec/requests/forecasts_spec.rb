@@ -54,7 +54,7 @@ describe "GET /<zip_code>" do
       get "/11206"
 
       expect(response.body).to include("Brooklyn")
-      temp = Nokogiri::HTML(response.body).css("#temperature").text
+      temp = Nokogiri::HTML(response.body).css("#temperature_num").text
       expect(temp).to eq("79")
     end
   end
@@ -65,7 +65,7 @@ describe "GET /<zip_code>" do
       get "/10001"
 
       expect(response.body).to include("New York")
-      temp = Nokogiri::HTML(response.body).css("#temperature").text.strip
+      temp = Nokogiri::HTML(response.body).css("#temperature_num").text
       expect(temp).to eq("81")
     end
   end
@@ -89,6 +89,8 @@ describe "GET /<zip_code>" do
   end
 
   it "uses city, and falls back to county if there is none" do
+    get "/11001"
+    expect(response.body).to include("")
   end
 
   it "caches the weather information correctly" do
