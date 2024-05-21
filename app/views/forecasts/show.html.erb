@@ -2,7 +2,7 @@
   <span class="text-red-600 text-sm pt-12 invisible tracking-tight"> Unable to retrieve weather information.</span>
   <h3 class="text-gray-500 text-2xl pt-3 tracking-tighter"><%= @county %></h3>
   <div class="pt-3 pr-[1.2rem]">
-    <span class="inline-block <%= "invisible" unless @is_negative %> text-gray-900 font-bold text-8xl tracking-tighter">-</span><h1 class="inline-block text-gray-900 font-bold text-8xl tracking-tighter"><%= @current_temp %></h1>
+    <span class="inline-block <%= "invisible" unless @is_negative %> text-gray-900 font-bold text-8xl tracking-tighter">-</span><h1 class="inline-block text-gray-900 font-bold text-8xl tracking-tighter" id="temperature"><%= @current_temp %></h1>
     <span class="inline-block text-gray-900 font-bold text-7xl align-top tracking-tighter">°</span>
   </div>
   <h2 class="text-gray-900 text-3xl tracking-tighter pt-3">Cloudy</h2>

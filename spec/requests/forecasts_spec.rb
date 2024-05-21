@@ -11,9 +11,11 @@ RSpec.describe "Forecasts", type: :request do
 
   describe "POST /" do
     it "redirects to the appropriate zip code" do
+      VCR.use_cassette("forecast_redirect") do
 
-      post "/", params: {address: "1 Apple Park Way. Cupertino, CA"}
-      expect(response).to redirect_to(forecasts_show_path(94087))
+        post "/", params: {address: "1 Apple Park Way. Cupertino, CA"}
+        expect(response).to redirect_to(forecasts_show_path(94087))
+      end
     end
 
     it "returns to index with an error for bad input" do
@@ -24,10 +26,14 @@ RSpec.describe "Forecasts", type: :request do
 
   describe "GET /<zip_code>" do
     it "retrieves the weather for a given zip code" do
-      get "/11206"
+      VCR.use_cassette("brooklyn_forecast") do
 
-      expect(response.body).to include("Brooklyn")
-      expect(response.body).to include("79")
+        get "/11206"
+
+        expect(response.body).to include("Brooklyn")
+        temp =  Nokogiri::HTML(response.body).css("#temperature").text
+        expect(temp).to eq("79")
+      end
     end
 
     it "redirects to index if not a valid 5 digit zip code" do
