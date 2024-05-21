@@ -78,7 +78,21 @@ describe "GET /<zip_code>" do
 
   end
 
-  it "displays the correct caching time value" do
+  it "caches the weather information correctly" do
+    now = Time.utc(2024, 5, 21, 12, 30)
+    Timecop.freeze(now) do
+      get "/10001"
+      expect(response.body).to include("less than a minute ago")
+    end
 
+    Timecop.freeze(now + 15.minutes) do
+     get "/10001"
+     expect(response.body).to include("15 minutes ago")
+    end
+
+    Timecop.freeze(now + 31.minutes) do
+      get "/10001"
+      expect(response.body).to include("less than a minute ago")
+    end
   end
 end

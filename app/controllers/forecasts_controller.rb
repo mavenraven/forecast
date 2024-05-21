@@ -44,12 +44,13 @@ class ForecastsController < ApplicationController
       results = Geocoder.search(zip_code.value)
       highest = GeocoderHelpers.best_result(results)
       if highest.nil?
+        #TODO: fix me
         raise 'fixme'
       end
       {lat: highest.latitude, lon: highest.longitude, county: highest.county}
     end
 
-    forecast_data = Rails.cache.fetch coords, skip_nil: true, expires_in: 30.minutes do
+    cached = Rails.cache.fetch coords, skip_nil: true, expires_in: 30.minutes do
       logger.debug "missed cache for weather data"
 
       grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
@@ -58,10 +59,11 @@ class ForecastsController < ApplicationController
       forecast_url = grid_data["properties"]["forecast"]
 
       forecast_resp = HTTParty.get(forecast_url)
-      JSON.parse(forecast_resp)
+      {forecast_data: JSON.parse(forecast_resp), cached_at: Time.now}
     end
 
-    @current_temp = forecast_data["properties"]["periods"][0]["temperature"]
+    @current_temp = cached[:forecast_data]["properties"]["periods"][0]["temperature"]
+    @cached_at = cached[:cached_at]
 
     @is_negative = false
     if @current_temp < 0

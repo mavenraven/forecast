@@ -9,7 +9,7 @@ RSpec.feature "Getting Forecasts", type: :feature do
       fill_in "address", with: "10001"
       click_button 'submit'
 
-      expect(page).to have_content("data last updated at")
+      expect(page).to have_content("last updated")
       expect(page).to have_content("New York")
       expect(page).to have_content("81")
     end
