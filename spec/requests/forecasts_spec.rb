@@ -94,5 +94,7 @@ describe "GET /<zip_code>" do
       get "/10001"
       expect(response.body).to include("less than a minute ago")
     end
+
+    Timecop.return
   end
 end
