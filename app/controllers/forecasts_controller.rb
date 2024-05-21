@@ -29,7 +29,7 @@ class ForecastsController < ApplicationController
     coords = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 24.hours do
       results = Geocoder.search(zip_code.value)
       highest = GeocoderHelpers.highest_confidence(results)
-      {lat: highest.latitude, lon: highest.longitude}
+      {lat: highest.latitude, lon: highest.longitude, county: highest.county}
     end
 
     grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
@@ -37,7 +37,16 @@ class ForecastsController < ApplicationController
     grid_data = JSON.parse(grid_resp)
     forecast_url = grid_data["properties"]["forecast"]
 
-      x = 1
+    forecast_resp = HTTParty.get(forecast_url)
+    forecast_data = JSON.parse(forecast_resp)
 
+    @current_temp = forecast_data["properties"]["periods"][0]["temperature"]
+
+    @is_negative = false
+    if @current_temp < 0
+      @is_negative = true
+    end
+
+    @county = coords[:county]
   end
 end

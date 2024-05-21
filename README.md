@@ -6,6 +6,11 @@ application up and running.
 tools version
 cache store in prod
 
+limitiations:
+better error pages
+didn't get an api with h/l
+extended foreacst difficult ["memorial Day"]
+
 Things you may want to cover:
 
 * Ruby version
