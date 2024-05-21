@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+#TODO: set up webmock
 RSpec.feature "Getting Forecasts", type: :feature do
   scenario "user is able to retrieve a forecast" do
     visit root_path

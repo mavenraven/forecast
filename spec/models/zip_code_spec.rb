@@ -16,5 +16,10 @@ RSpec.describe ZipCode, type: :model do
       zip_code = ZipCode.new(value: "hello")
       expect(zip_code).to_not be_valid
     end
+
+    it "does not allow for blank" do
+      zip_code = ZipCode.new(value: "")
+      expect(zip_code).to_not be_valid
+    end
   end
 end

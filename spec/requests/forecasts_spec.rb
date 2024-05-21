@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+#TODO: set up webmock
 RSpec.describe "Forecasts", type: :request do
   describe "GET /" do
     it "renders the index page" do
