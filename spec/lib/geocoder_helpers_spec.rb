@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Utility' do
+RSpec.describe 'GeocoderHelpers' do
   describe "highest_confidence" do
     context 'all results have a confidence' do
       it 'returns the highest confidence geocoded result' do
@@ -14,7 +14,7 @@ RSpec.describe 'Utility' do
           result_class.new({"data" => {"confidence" => 3}})
         ]
 
-        expect(Utility.highest_confidence(results)).to equal(results[2])
+        expect(GeocoderHelpers.highest_confidence(results)).to equal(results[2])
       end
 
 
@@ -29,7 +29,7 @@ RSpec.describe 'Utility' do
           result_class.new({"data" => {"confidence" => 3}})
         ]
 
-        expect(Utility.highest_confidence(results)).to equal(results[2])
+        expect(GeocoderHelpers.highest_confidence(results)).to equal(results[2])
       end
     end
 
@@ -43,7 +43,7 @@ RSpec.describe 'Utility' do
           result_class.new({"data" => {"confidence" => 3}})
         ]
 
-        expect(Utility.highest_confidence(results)).to equal(results[1])
+        expect(GeocoderHelpers.highest_confidence(results)).to equal(results[1])
       end
     end
 
@@ -54,7 +54,7 @@ RSpec.describe 'Utility' do
         results = [
         ]
 
-        expect(Utility.highest_confidence(results)).to be_nil
+        expect{GeocoderHelpers.highest_confidence(results)}.to raise_error ArgumentError
       end
     end
   end

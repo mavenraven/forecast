@@ -1,5 +1,5 @@
 
-module Utility
+module GeocoderHelpers
   def self.highest_confidence results
     highest_confidence = nil
     results.each do |result|
@@ -12,6 +12,9 @@ module Utility
           end
         end
       end
+    end
+    if highest_confidence.nil?
+      raise ArgumentError.new('no result with confidence')
     end
     highest_confidence
   end

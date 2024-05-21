@@ -12,19 +12,8 @@ class ForecastsController < ApplicationController
       render :index and return
     end
 
-    begin
-      results = Geocoder.search(@address.value)
-    rescue
-      #todo tests and add turn on error
-      render :index and return
-    end
-
-    highest = Utility.highest_confidence(results)
-
-    if highest.nil?
-      #todo tests and add turn on error
-      render :index and return
-    end
+    results = Geocoder.search(@address.value)
+    highest = GeocoderHelpers.highest_confidence(results)
 
     redirect_to action: "show", id: highest.postal_code
   end
@@ -38,50 +27,15 @@ class ForecastsController < ApplicationController
     end
 
     coords = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 24.hours do
-      begin
-        results = Geocoder.search(zip_code.value)
-      rescue
-        #TODO error message
-        @address = Address.new
-        redirect_to action: "index" and return
-      end
-
-      highest = Utility.highest_confidence(results)
-
-      if highest.nil?
-        #TODO error message
-        @address = Address.new
-        redirect_to action: "index" and return
-      end
-
+      results = Geocoder.search(zip_code.value)
+      highest = GeocoderHelpers.highest_confidence(results)
       {lat: highest.latitude, lon: highest.longitude}
     end
 
-    if coords.nil?
-      #TODO: error message
-      redirect_to action: "index" and return
-    end
-
-    begin
-      grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
-      grid_resp = HTTParty.get(grid_url)
-    rescue
-      #TODO error message
-      @address = Address.new
-      redirect_to action: "index" and return
-    end
-
-    begin
-      grid_data = JSON.parse(grid_resp)
-    rescue
-      #TODO error message
-      @address = Address.new
-      redirect_to action: "index" and return
-    end
-
-    if grid_data[:properties].nil? or grid_data
-
-    end
+    grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
+    grid_resp = HTTParty.get(grid_url)
+    grid_data = JSON.parse(grid_resp)
+    forecast_url = grid_data["properties"]["forecast"]
 
       x = 1
 
