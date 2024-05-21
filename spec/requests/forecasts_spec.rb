@@ -15,8 +15,8 @@ RSpec.describe "Forecasts", type: :request do
     end
 
     it "returns to index with an error for bad input" do
-      post "/", params: {form: {address: "<>"}}
-      expect(response).to include("contains invalid characters")
+      post "/", params: {address: "<>"}
+      expect(response.body).to include("contains invalid characters")
     end
   end
 
