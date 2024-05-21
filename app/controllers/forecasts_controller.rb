@@ -17,8 +17,10 @@ class ForecastsController < ApplicationController
       render :index and return
     end
 
-    results = Geocoder.search(@address.value)
-    highest = GeocoderHelpers.best_result(results)
+    highest = Rails.cache.fetch @address.value, skip_nil: true, expires_in: 30.minutes do
+      results = Geocoder.search(@address.value)
+      GeocoderHelpers.best_result(results)
+    end
 
     redirect_to action: "show", id: highest.postal_code
   end
