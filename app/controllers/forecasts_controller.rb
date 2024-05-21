@@ -9,9 +9,19 @@ class ForecastsController < ApplicationController
     @address = Address.new(value: params[:address])
 
     if @address.valid?
-      #TODO fix to use highest confidence
-      zip = Geocoder.search(@address.value).first.postal_code
-      redirect_to action: "show", id: zip
+      begin
+        results = Geocoder.search(@address.value)
+        highest = Utility.highest_confidence(results)
+        if not highest.nil?
+          redirect_to action: "show", id: highest.postal_code
+        else
+          #todo tests and add turn on error
+          render :index
+        end
+      rescue
+        #todo tests and add turn on error
+        render :index
+      end
     else
       render :index
     end

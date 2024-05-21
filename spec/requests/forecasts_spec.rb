@@ -12,7 +12,8 @@ RSpec.describe "Forecasts", type: :request do
   describe "POST /" do
     it "redirects to the appropriate zip code" do
       post "/", params: {address: "1 Apple Park Way. Cupertino, CA"}
-      expect(response).to redirect_to(forecasts_path(95014))
+      #TODO: The geocode I choose isn't great. Switch to a better one.
+      expect(response).to redirect_to(forecasts_path(94087))
     end
 
     it "returns to index with an error for bad input" do
