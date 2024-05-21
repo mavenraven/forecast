@@ -76,7 +76,6 @@ describe "GET /<zip_code>" do
 
   it "redirects to index if not a valid 5 digit zip code" do
     get "/hello"
-
     expect(response).to redirect_to(forecasts_index_path)
   end
 

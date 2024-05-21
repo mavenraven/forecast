@@ -38,7 +38,7 @@ class ForecastsController < ApplicationController
       redirect_to action: "index" and return
     end
 
-    coords = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 30.minutes do
+    highest = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 30.minutes do
       logger.debug "missed cache for lat lon"
 
       results = Geocoder.search(zip_code.value)
@@ -47,9 +47,10 @@ class ForecastsController < ApplicationController
         #TODO: fix me
         raise 'fixme'
       end
-      {lat: highest.latitude, lon: highest.longitude, county: highest.county}
+      highest
     end
 
+    coords = {lat: highest.latitude, lon: highest.longitude}
     cached = Rails.cache.fetch coords, skip_nil: true, expires_in: 30.minutes do
       logger.debug "missed cache for weather data"
 
@@ -64,6 +65,6 @@ class ForecastsController < ApplicationController
 
     @current_temp = cached[:forecast_data]["properties"]["periods"][0]["temperature"]
     @cached_at = cached[:cached_at]
-    @county = coords[:county]
+    @county = highest.county
   end
 end

@@ -1,23 +1,38 @@
 <div class="pb-8"></div>
-
-<span class="text-red-600 text-sm pb-3 <%= "invisible" if @general_error.nil? %> tracking-tight"><%= @general_error or "placeholder" %></span>
+<span class="
+      text-red-600
+      text-sm
+      pb-3
+      <%= "invisible" if @general_error.nil? %>
+      tracking-tight">
+  <%= @general_error or "placeholder" %>
+</span>
 <%= form_with local:true, data: {turbo: false}, html: { class: "flex flex-col justify-between pb-12" } do |form| %>
-  <div class="">
-    <%= form.label :address,
-                   "address",
-                   class: "block font-bold pb-2 text-gray-800 text-sm tracking-tighter"
-    %>
-    <%= form.text_field :address,
-                        class: "rounded placeholder-gray-300 w-full border-gray-300 tracking-tighter",
-                        placeholder: "1 Apple Park Way. Cupertino, CA 95014"
-    %>
-  </div>
+  <%= form.label :address,
+                 "address",
+                 class: "block font-bold pb-2 text-gray-800 text-sm tracking-tighter"
+  %>
+  <%= form.text_field :address,
+                      class: "rounded placeholder-gray-300 w-full border-gray-300 tracking-tighter",
+                      placeholder: "1 Apple Park Way. Cupertino, CA 95014"
+  %>
   <% not @address.nil? and @address.errors.full_messages.each do |msg| %>
-    <span class="pt-2 pb-2 text-red-600 text-xs  tracking-tight"><%= msg %></span>
+    <span class="pt-2 pb-2 text-red-600 text-xs tracking-tight"><%= msg %></span>
   <% end %>
   <div class="pt-4">
     <%= form.submit "submit",
-                    class: "block hover:from-violet-800 hover:to-violet-700 active:from-violet-900 active:to-violet-800 active:scale-[.997] bg-gradient-to-t from-violet-700 to-violet-600 text-gray-100 py-2 px-36 rounded tracking-tighter"
-    %>
+                    class: "
+                    block
+                    hover:from-violet-800
+                    hover:to-violet-700
+                    active:from-violet-900
+                    active:to-violet-800
+                    active:scale-[.997]
+                    bg-gradient-to-t from-violet-700
+                    to-violet-600 text-gray-100
+                    py-2
+                    px-36
+                    rounded
+                    tracking-tighter" %>
   </div>
 <% end %>
