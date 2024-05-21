@@ -1,9 +1,7 @@
 <% if @general_error %>
-  <div class=" text-red-600 pb-40 text-sm tracking-tight"> <%= @general_error %></div>
-  <div class="pb-40"></div>
+  <div class=" text-red-600 pt-12 pb-2 text-sm tracking-tight"> <%= @general_error %></div>
 <% end %>
-<div class="pb-40">hi!</div>
-<%= form_with local:true, data: {turbo: false}, html: { class: "flex flex-col justify-between pt-40 pb-12" } do |form| %>
+<%= form_with local:true, data: {turbo: false}, html: { class: "flex flex-col justify-between #{"pt-12" unless @general_error} pb-12" } do |form| %>
   <%= form.label :address,
                  "address",
                  class: "block font-bold pb-2 text-gray-800 text-sm tracking-tighter"
@@ -12,8 +10,8 @@
                       class: "rounded placeholder-gray-300 w-full border-gray-300 tracking-tighter",
                       placeholder: "1 Apple Park Way. Cupertino, CA 95014"
   %>
-  <% not @address.nil? and @address.errors.full_messages.each do |msg| %>
-    <span class="pt-2 pb-2 text-red-600 text-xs tracking-tight"><%= msg + "." %></span>
+  <% not @address.nil? and @address.errors.each do |error| %>
+    <span class="pt-2 pb-2 text-red-600 text-xs tracking-tight"><%= "Address" + error.message + "." %></span>
   <% end %>
   <div class="pt-4">
     <%= form.submit "submit",

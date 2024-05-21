@@ -53,7 +53,7 @@ RSpec.describe "Forecasts", type: :request do
     allow(Geocoder).to receive(:search).and_raise("geocoding error")
 
     post "/", params: {address: "123 crash avenue"}
-    expect(response.body).to include("Could not")
+    expect(response.body).to include("not retrieve")
   end
 end
 
