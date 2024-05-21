@@ -9,24 +9,33 @@ RSpec.describe 'GeocoderHelpers' do
         result_class = Struct.new(:instance_values)
 
         results = [
-          result_class.new({"data" => {"confidence" => 1}}),
-          result_class.new({"data" => {"confidence" => 2}}),
-          result_class.new({"data" => {"confidence" => 3}})
+          result_class.new({"data" => {"confidence" => 1, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 2, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 3, "components" => {"country_code" => "us"}}})
         ]
-
         expect(GeocoderHelpers.best_result(results)).to equal(results[2])
       end
 
+      it 'ignores any non us results' do
+        result_class = Struct.new(:instance_values)
 
+        results = [
+          result_class.new({"data" => {"confidence" => 1, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 2, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 3, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 9, "components" => {"country_code" => "es"}}})
+        ]
+        expect(GeocoderHelpers.best_result(results)).to equal(results[2])
+      end
     end
     context 'not all results have a confidence' do
       it 'returns the highest confidence geocoded result' do
         result_class = Struct.new(:instance_values)
 
         results = [
-          result_class.new({"data" => {"confidence" => 1}}),
-          result_class.new({"data" => {}}),
-          result_class.new({"data" => {"confidence" => 3}})
+          result_class.new({"data" => {"confidence" => 1, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 3, "components" => {"country_code" => "us"}}})
         ]
 
         expect(GeocoderHelpers.best_result(results)).to equal(results[2])
@@ -38,9 +47,9 @@ RSpec.describe 'GeocoderHelpers' do
         result_class = Struct.new(:instance_values)
 
         results = [
-          result_class.new({"data" => {"confidence" => 1}}),
-          result_class.new({"data" => {"confidence" => 3}}),
-          result_class.new({"data" => {"confidence" => 3}})
+          result_class.new({"data" => {"confidence" => 1, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 3, "components" => {"country_code" => "us"}}}),
+          result_class.new({"data" => {"confidence" => 3, "components" => {"country_code" => "us"}}})
         ]
 
         expect(GeocoderHelpers.best_result(results)).to equal(results[1])

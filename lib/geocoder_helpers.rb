@@ -3,6 +3,9 @@ module GeocoderHelpers
   def self.best_result results
     highest_confidence = nil
     results.each do |result|
+      if result.instance_values["data"]["components"]["country_code"] != "us"
+        next
+      end
       if highest_confidence.nil?
         highest_confidence = result
       else
