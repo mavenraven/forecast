@@ -30,8 +30,10 @@ RSpec.describe "Forecasts", type: :request do
   end
 
   it "an address that gives no results" do
-    post "/", params: {address: "1 apple parkway, cuptertino"}
-    expect(response.body).to include("not found")
+    VCR.use_cassette("no_result_address") do
+      post "/", params: {address: "1 apple parkway, cuptertino"}
+      expect(response.body).to include("not found")
+    end
   end
 end
 
