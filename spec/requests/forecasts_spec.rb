@@ -42,11 +42,18 @@ RSpec.describe "Forecasts", type: :request do
     end
   end
 
-  it "an address that doesn't return a postal code" do
+  it "works with an address that doesn't return a postal code" do
     VCR.use_cassette("an_address_that_doesnt_return_a_postal_code") do
       post "/", params: {address: "222 main street troy mi"}
       expect(response.body).to include("not found")
     end
+  end
+
+  it "displays an error if location cannot be retrieved" do
+    allow(Geocoder).to receive(:search).and_raise("geocoding error")
+
+    post "/", params: {address: "123 crash avenue"}
+    expect(response.body).to include("Could not")
   end
 end
 
@@ -73,6 +80,8 @@ describe "GET /<zip_code>" do
     end
   end
 
+  xit "/34343" do
+  end
 
   it "redirects to index if not a valid 5 digit zip code" do
     get "/hello"

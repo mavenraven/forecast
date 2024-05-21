@@ -1,13 +1,9 @@
-<div class="pb-8"></div>
-<span class="
-      text-red-600
-      text-sm
-      pb-3
-      <%= "invisible" if @general_error.nil? %>
-      tracking-tight">
-  <%= @general_error or "placeholder" %>
-</span>
-<%= form_with local:true, data: {turbo: false}, html: { class: "flex flex-col justify-between pb-12" } do |form| %>
+<% if @general_error %>
+  <div class=" text-red-600 pb-40 text-sm tracking-tight"> <%= @general_error %></div>
+  <div class="pb-40"></div>
+<% end %>
+<div class="pb-40">hi!</div>
+<%= form_with local:true, data: {turbo: false}, html: { class: "flex flex-col justify-between pt-40 pb-12" } do |form| %>
   <%= form.label :address,
                  "address",
                  class: "block font-bold pb-2 text-gray-800 text-sm tracking-tighter"
