@@ -10,8 +10,13 @@ RSpec.describe "Forecasts", type: :request do
 
   describe "POST /" do
     it "redirects to the appropriate zip code" do
-      post "/", params: {form: {address_input: "1 Apple Park Way. Cupertino, CA"}}
-      expect(response).to redirect_to(forecasts_show_path(95014))
+      post "/", params: {form: {address: "1 Apple Park Way. Cupertino, CA"}}
+      expect(response).to redirect_to(forecasts_path(95014))
+    end
+
+    it "returns to index with an error for bad input" do
+      post "/", params: {form: {address: "<>"}}
+      expect(response).to include("contains invalid characters")
     end
   end
 

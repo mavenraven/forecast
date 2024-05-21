@@ -1,13 +1,19 @@
+require 'pry'
+
 class ForecastsController < ApplicationController
   def index
+    @address_form = AddressForm.new()
   end
 
   def create
-    address = params[:address_input]
-    if address.match? /\A[\p{L}\p{N},.\s]+\z/u
-      redirect_to(forecasts_show_path(95014))
+    @address_form = AddressForm.new(address: params[:address])
+    binding.pry
+
+    if @address_form.valid?
+      throw 'hi'
+    else
+      render :index
     end
-    # Geocoder.coordinates(pa)
   end
 
   def show

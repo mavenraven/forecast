@@ -3,6 +3,5 @@ class AddressForm
 
   attr_accessor :address
 
-  validates :address, presence: true,
-            format: {with: /\A[\p{L}\p{N},.\s]+\z/u, message: 'contains invalid characters'}
+  validates :address, format: {with: /\A[\p{L}\p{N},.\s]*\z/u, message: 'contains invalid characters.'}
 end
