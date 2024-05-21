@@ -1,16 +1,17 @@
 require 'rails_helper'
 
-#TODO: set up webmock
 RSpec.feature "Getting Forecasts", type: :feature do
   scenario "user is able to retrieve a forecast" do
-    visit root_path
-    expect(page).to have_content("Weather")
+    VCR.use_cassette("e2e") do
+      visit "/"
+      expect(page).to have_content("Weather")
 
-    fill_in "address_input", with: "1 Apple Park Way. Cupertino, CA"
-    click_button 'submit'
+      fill_in "address", with: "10001"
+      click_button 'submit'
 
-    expect(page).to have_content("Data last updated at")
-    expect(page).to have_content("Cupertino")
-    expect(page).to have_content("75°")
+      expect(page).to have_content("data last updated at")
+      expect(page).to have_content("New York")
+      expect(page).to have_content("81")
+    end
   end
 end
