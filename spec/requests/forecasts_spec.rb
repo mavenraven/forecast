@@ -29,6 +29,10 @@ RSpec.describe "Forecasts", type: :request do
     end
   end
 
+  it "an address that gives no results" do
+    post "/", params: {address: "1 apple parkway, cuptertino"}
+    expect(response.body).to include("not found")
+  end
 end
 
 describe "GET /<zip_code>" do
@@ -53,6 +57,7 @@ describe "GET /<zip_code>" do
       expect(temp).to eq("81")
     end
   end
+
 
   it "redirects to index if not a valid 5 digit zip code" do
     get "/hello"

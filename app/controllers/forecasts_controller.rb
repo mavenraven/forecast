@@ -19,6 +19,10 @@ class ForecastsController < ApplicationController
 
     highest = Rails.cache.fetch @address.value, skip_nil: true, expires_in: 30.minutes do
       results = Geocoder.search(@address.value)
+      if results.empty?
+        @general_error = "Address not found"
+        render :index and return
+      end
       GeocoderHelpers.best_result(results)
     end
 
