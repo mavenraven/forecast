@@ -27,5 +27,11 @@ RSpec.describe "Forecasts", type: :request do
       expect(response.body).to include("Cupertino")
       expect(response.body).to include("75°")
     end
+
+    it "redirects to index if not a valid 5 digit zip code" do
+      get "/hello"
+
+      expect(response).to redirect_to(forecasts_path)
+    end
   end
 end

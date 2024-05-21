@@ -17,18 +17,12 @@ class ForecastsController < ApplicationController
   end
 
   def show
-    @address = Address.new(value: params[:id])
+    zip_code = ZipCode.new(value: params[:id])
 
-
-    if
-    Rails.cache.fetch()
-
-
-    #if @address_form.valid?
-
- # else
- #   render :index
- # end
- #   coords = Geocoder.search
+    if zip_code.valid?
+    else
+      @address = Address.new
+      redirect_to action: "index"
+    end
   end
 end
