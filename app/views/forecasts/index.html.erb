@@ -17,7 +17,7 @@
                       placeholder: "1 Apple Park Way. Cupertino, CA 95014"
   %>
   <% not @address.nil? and @address.errors.full_messages.each do |msg| %>
-    <span class="pt-2 pb-2 text-red-600 text-xs tracking-tight"><%= msg %></span>
+    <span class="pt-2 pb-2 text-red-600 text-xs tracking-tight"><%= msg + "." %></span>
   <% end %>
   <div class="pt-4">
     <%= form.submit "submit",

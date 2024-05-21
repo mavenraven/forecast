@@ -44,7 +44,7 @@ class ForecastsController < ApplicationController
       begin
         results = Geocoder.search(zip_code.value)
       rescue
-        @general_error = "Could not retrieve weather"
+        @general_error = "Could not retrieve weather."
         render :show and return
       end
 
