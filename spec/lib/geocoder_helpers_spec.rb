@@ -63,7 +63,7 @@ RSpec.describe 'GeocoderHelpers' do
         results = [
         ]
 
-        expect{GeocoderHelpers.best_result(results)}.to raise_error ArgumentError
+        expect(GeocoderHelpers.best_result(results)).to eq(nil)
       end
     end
   end

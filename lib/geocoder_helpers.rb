@@ -16,9 +16,6 @@ module GeocoderHelpers
         end
       end
     end
-    if highest_confidence.nil?
-      raise ArgumentError.new('no best result')
-    end
     highest_confidence
   end
 end

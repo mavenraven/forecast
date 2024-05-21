@@ -35,6 +35,13 @@ RSpec.describe "Forecasts", type: :request do
       expect(response.body).to include("not found")
     end
   end
+
+  it "a weird address that broke during testing" do
+    VCR.use_cassette("a_weird_address_that_broke_during_testing") do
+      post "/", params: {address: "kj"}
+      expect(response.body).to include("not found")
+    end
+  end
 end
 
 describe "GET /<zip_code>" do

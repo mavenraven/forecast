@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.opencagedata.com/geocode/v1/json?key=<OPENCAGEDATA KEY>&language=en&q=kj
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 May 2024 18:01:48 GMT
+      Server:
+      - Apache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Ratelimit-Limit:
+      - '2500'
+      X-Ratelimit-Remaining:
+      - '2285'
+      X-Ratelimit-Reset:
+      - '1716336000'
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '2311'
+      Content-Type:
+      - application/json; charset=utf-8
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"documentation":"https://opencagedata.com/api","licenses":[{"name":"see
+        attribution guide","url":"https://opencagedata.com/credits"}],"rate":{"limit":2500,"remaining":2285,"reset":1716336000},"results":[{"annotations":{"DMS":{"lat":"33\u00b0
+        7'' 46.47720'''' N","lng":"58\u00b0 6'' 23.42484'''' E"},"MGRS":"40SFB0321666196","Maidenhead":"LM93bd21sc","Mercator":{"x":6468386.76,"y":3889164.483},"OSM":{"edit_url":"https://www.openstreetmap.org/edit?relation=537658#map=17/33.12958/58.10651","note_url":"https://www.openstreetmap.org/note/new#map=17/33.12958/58.10651&layers=N","url":"https://www.openstreetmap.org/?mlat=33.12958&mlon=58.10651#map=17/33.12958/58.10651"},"UN_M49":{"regions":{"ASIA":"142","IR":"364","SOUTHERN_ASIA":"034","WORLD":"001"},"statistical_groupings":["LEDC"]},"callingcode":98,"currency":{"alternate_symbols":[],"decimal_mark":".","html_entity":"&#xFDFC;","iso_code":"IRR","iso_numeric":"364","name":"Iranian
+        Rial","smallest_denomination":5000,"subunit_to_unit":100,"symbol":"\ufdfc","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddee\ud83c\uddf7","geohash":"tmck6ppcg8zbshetg2zn","qibla":238.74,"roadinfo":{"drive_on":"right","speed_in":"km/h"},"sun":{"rise":{"apparent":1716253500,"astronomical":1716334080,"civil":1716251880,"nautical":1716249840},"set":{"apparent":1716303780,"astronomical":1716309660,"civil":1716305460,"nautical":1716307500}},"timezone":{"name":"Asia/Tehran","now_in_dst":0,"offset_sec":12600,"offset_string":"+0330","short_name":330},"what3words":{"words":"gnats.downtowns.unevenness"},"wikidata":"Q171551"},"bounds":{"northeast":{"lat":35.1269001,"lng":60.9459035},"southwest":{"lat":30.52283,"lng":55.4049914}},"components":{"ISO_3166-1_alpha-2":"IR","ISO_3166-1_alpha-3":"IRN","ISO_3166-2":["IR-29"],"_category":"place","_type":"state","continent":"Asia","country":"Iran","country_code":"ir","province":"South
+        Khorasan Province","state":"South Khorasan Province"},"confidence":1,"formatted":"South
+        Khorasan Province, Iran","geometry":{"lat":33.129577,"lng":58.1065069}}],"status":{"code":200,"message":"OK"},"stay_informed":{"blog":"https://blog.opencagedata.com","mastodon":"https://en.osm.town/@opencage"},"thanks":"For
+        using an OpenCage API","timestamp":{"created_http":"Tue, 21 May 2024 18:01:48
+        GMT","created_unix":1716314508},"total_results":1}'
+  recorded_at: Tue, 21 May 2024 18:01:49 GMT
+recorded_with: VCR 6.2.0

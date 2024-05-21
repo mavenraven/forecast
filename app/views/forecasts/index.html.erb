@@ -1,5 +1,6 @@
 <div class="pb-8"></div>
-<span class="text-red-600 text-sm pb-3 <%= "invisible" if @general_error.nil? %>invisible tracking-tight"><%= @general_error %></span>
+
+<span class="text-red-600 text-sm pb-3 <%= "invisible" if @general_error.nil? %> tracking-tight"><%= @general_error or "placeholder" %></span>
 <%= form_with local:true, data: {turbo: false}, html: { class: "flex flex-col justify-between pb-12" } do |form| %>
   <div class="">
     <%= form.label :address,
