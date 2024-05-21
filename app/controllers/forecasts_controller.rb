@@ -9,12 +9,21 @@ class ForecastsController < ApplicationController
     @address_form = AddressForm.new(address: params[:address])
 
     if @address_form.valid?
-      throw 'hi'
+      zip = Geocoder.search(@address_form.address).first.postal_code
+      redirect_to action: "show", id: zip
     else
       render :index
     end
   end
 
   def show
+    @address_form = AddressForm.new(address: params[:id])
+
+    #if @address_form.valid?
+
+ # else
+ #   render :index
+ # end
+ #   coords = Geocoder.search
   end
 end
