@@ -31,19 +31,25 @@ class ForecastsController < ApplicationController
       redirect_to action: "index" and return
     end
 
-    coords = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 24.hours do
+    coords = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 30.minutes do
+      logger.debug "missed cache for lat lon"
+
       results = Geocoder.search(zip_code.value)
       highest = GeocoderHelpers.best_result(results)
       {lat: highest.latitude, lon: highest.longitude, county: highest.county}
     end
 
-    grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
-    grid_resp = HTTParty.get(grid_url)
-    grid_data = JSON.parse(grid_resp)
-    forecast_url = grid_data["properties"]["forecast"]
+    forecast_data = Rails.cache.fetch coords, skip_nil: true, expires_in: 30.minutes do
+      logger.debug "missed cache for weather data"
 
-    forecast_resp = HTTParty.get(forecast_url)
-    forecast_data = JSON.parse(forecast_resp)
+      grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
+      grid_resp = HTTParty.get(grid_url)
+      grid_data = JSON.parse(grid_resp)
+      forecast_url = grid_data["properties"]["forecast"]
+
+      forecast_resp = HTTParty.get(forecast_url)
+      JSON.parse(forecast_resp)
+    end
 
     @current_temp = forecast_data["properties"]["periods"][0]["temperature"]
 
