@@ -2,14 +2,14 @@ require 'pry'
 
 class ForecastsController < ApplicationController
   def index
-    @address_form = AddressForm.new
+    @address = Address.new
   end
 
   def create
-    @address_form = AddressForm.new(address: params[:address])
+    @address = Address.new(value: params[:address])
 
-    if @address_form.valid?
-      zip = Geocoder.search(@address_form.address).first.postal_code
+    if @address.valid?
+      zip = Geocoder.search(@address.address).first.postal_code
       redirect_to action: "show", id: zip
     else
       render :index
@@ -17,7 +17,7 @@ class ForecastsController < ApplicationController
   end
 
   def show
-    @address_form = AddressForm.new(address: params[:id])
+    @address = Address.new(value: params[:id])
 
     #if @address_form.valid?
 
