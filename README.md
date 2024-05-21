@@ -16,6 +16,10 @@ didn't want to put down a credit card for this  to eliminate any chance of a sup
 
 error page results
 didnt use service objects
+county instead of city
+using memory cache in prod, would use redis for a real deployment
+
+fix placeholder thing in error messages
 
 fix http://localhost:3000/10007
 Things you may want to cover:

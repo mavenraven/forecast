@@ -41,7 +41,13 @@ class ForecastsController < ApplicationController
     highest = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 30.minutes do
       logger.debug "missed cache for lat lon"
 
-      results = Geocoder.search(zip_code.value)
+      begin
+        results = Geocoder.search(zip_code.value)
+      rescue
+        @general_error = "Could not retrieve weather"
+        render :show and return
+      end
+
       highest = GeocoderHelpers.best_result(results)
       if highest.nil?
         #TODO: fix me
@@ -65,6 +71,6 @@ class ForecastsController < ApplicationController
 
     @current_temp = cached[:forecast_data]["properties"]["periods"][0]["temperature"]
     @cached_at = cached[:cached_at]
-    @county = highest.county
+    @location = highest.county
   end
 end

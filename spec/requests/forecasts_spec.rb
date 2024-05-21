@@ -86,13 +86,11 @@ describe "GET /<zip_code>" do
     end
   end
 
-  it "displays an error if weather cannot be retrieved" do
+  it "displays an error if location cannot be retrieved" do
+    allow(Geocoder).to receive(:search).and_raise("geocoding error")
 
-  end
-
-  it "uses city, and falls back to county if there is none" do
     get "/11001"
-    expect(response.body).to include("")
+    expect(response.body).to include("Could not")
   end
 
   it "caches the weather information correctly" do
