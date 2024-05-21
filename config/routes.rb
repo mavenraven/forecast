@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'forecasts#index'
+  get '/', to: 'forecasts#index', as: :forecasts_index
   post '/', to: 'forecasts#create'
   get '/:id', to: 'forecasts#show', as: :forecasts_show
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

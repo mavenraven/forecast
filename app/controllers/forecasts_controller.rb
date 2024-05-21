@@ -8,48 +8,82 @@ class ForecastsController < ApplicationController
   def create
     @address = Address.new(value: params[:address])
 
-    if @address.valid?
-      begin
-        results = Geocoder.search(@address.value)
-        highest = Utility.highest_confidence(results)
-        if not highest.nil?
-          redirect_to action: "show", id: highest.postal_code
-        else
-          #todo tests and add turn on error
-          render :index
-        end
-      rescue
-        #todo tests and add turn on error
-        render :index
-      end
-    else
-      render :index
+    if not @address.valid?
+      render :index and return
     end
+
+    begin
+      results = Geocoder.search(@address.value)
+    rescue
+      #todo tests and add turn on error
+      render :index and return
+    end
+
+    highest = Utility.highest_confidence(results)
+
+    if highest.nil?
+      #todo tests and add turn on error
+      render :index and return
+    end
+
+    redirect_to action: "show", id: highest.postal_code
   end
 
   def show
     zip_code = ZipCode.new(value: params[:id])
 
-    if zip_code.valid?
-      coords = Rails.cache.fetch zip_code.value, expires_in: 24.hours do
-        highest_confidence = nil
-        Geocoder.search(zip_code.value).each do |result|
-          if highest_confidence.nil?
-            highest_confidence = result
-          else
-            if result.instance_values["data"]["confidence"] > highest_confidence.instance_values["data"]["confidence"]
-              highest_confidence = result
-            end
-          end
-        end
-        x = 1
-
-
-
-      end
-    else
+    if not zip_code.valid?
       @address = Address.new
-      redirect_to action: "index"
+      redirect_to action: "index" and return
     end
+
+    coords = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 24.hours do
+      begin
+        results = Geocoder.search(zip_code.value)
+      rescue
+        #TODO error message
+        @address = Address.new
+        redirect_to action: "index" and return
+      end
+
+      highest = Utility.highest_confidence(results)
+
+      if highest.nil?
+        #TODO error message
+        @address = Address.new
+        redirect_to action: "index" and return
+      end
+
+      {lat: highest.latitude, lon: highest.longitude}
+    end
+
+    if coords.nil?
+      #TODO: error message
+      redirect_to action: "index" and return
+    end
+
+    begin
+      grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
+      grid_resp = HTTParty.get(grid_url)
+    rescue
+      #TODO error message
+      @address = Address.new
+      redirect_to action: "index" and return
+    end
+
+    begin
+      grid_data = JSON.parse(grid_resp)
+    rescue
+      #TODO error message
+      @address = Address.new
+      redirect_to action: "index" and return
+    end
+
+    if grid_data[:properties].nil? or grid_data
+
+    end
+
+      x = 1
+
   end
 end
