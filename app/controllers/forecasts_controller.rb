@@ -56,8 +56,8 @@ class ForecastsController < ApplicationController
 
       highest = GeocoderHelpers.best_result(results)
       if highest.nil?
-        #TODO: fix me
-        raise 'fixme'
+        @general_error = "Could not retrieve weather."
+        render :show and return
       end
       highest
     end
