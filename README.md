@@ -11,6 +11,10 @@ better error pages
 didn't get an api with h/l
 extended foreacst difficult ["memorial Day"]
 
+simple tests are not working, like 10001. I would use Google geocoding api, but I
+didn't want to put down a credit card for this  to eliminate any chance of a suprise bill.
+
+fix http://localhost:3000/10007
 Things you may want to cover:
 
 * Ruby version

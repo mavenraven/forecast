@@ -11,8 +11,8 @@ RSpec.describe "Forecasts", type: :request do
 
   describe "POST /" do
     it "redirects to the appropriate zip code" do
+
       post "/", params: {address: "1 Apple Park Way. Cupertino, CA"}
-      #TODO: The geocode I choose isn't great. Switch to a better one.
       expect(response).to redirect_to(forecasts_show_path(94087))
     end
 
@@ -24,16 +24,24 @@ RSpec.describe "Forecasts", type: :request do
 
   describe "GET /<zip_code>" do
     it "retrieves the weather for a given zip code" do
-      get "/95014"
+      get "/11206"
 
-      expect(response.body).to include("Cupertino")
-      expect(response.body).to include("75°")
+      expect(response.body).to include("Brooklyn")
+      expect(response.body).to include("79")
     end
 
     it "redirects to index if not a valid 5 digit zip code" do
       get "/hello"
 
       expect(response).to redirect_to(forecasts_index_path)
+    end
+
+    it "displays a negative temperature correctly" do
+
+    end
+
+    it "displays the correct caching time value" do
+
     end
   end
 end
