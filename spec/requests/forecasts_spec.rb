@@ -22,32 +22,49 @@ RSpec.describe "Forecasts", type: :request do
       post "/", params: {address: "<>"}
       expect(response.body).to include("contains invalid characters")
     end
+
+    it "skips hitting the geocoder if we can special case a 5 digit zip code" do
+      post "/", params: {address: "94087"}
+      expect(response).to redirect_to(forecasts_show_path(94087))
+    end
   end
 
-  describe "GET /<zip_code>" do
-    it "retrieves the weather for a given zip code" do
-      VCR.use_cassette("brooklyn_forecast") do
+end
 
-        get "/11206"
+describe "GET /<zip_code>" do
+  it "retrieves the weather for a given zip code" do
+    VCR.use_cassette("brooklyn_forecast") do
 
-        expect(response.body).to include("Brooklyn")
-        temp =  Nokogiri::HTML(response.body).css("#temperature").text
-        expect(temp).to eq("79")
-      end
+      get "/11206"
+
+      expect(response.body).to include("Brooklyn")
+      temp = Nokogiri::HTML(response.body).css("#temperature").text
+      expect(temp).to eq("79")
     end
+  end
 
-    it "redirects to index if not a valid 5 digit zip code" do
-      get "/hello"
+  it "works correctly with address that have a higher confidence than any US address" do
+    #    VCR.use_cassette("high_confidence_non_us") do
 
-      expect(response).to redirect_to(forecasts_index_path)
-    end
+      get "/10001"
 
-    it "displays a negative temperature correctly" do
+      expect(response.body).to include("Brooklyn")
+      temp = Nokogiri::HTML(response.body).css("#temperature").text
+      expect(temp).to eq("79")
+    #end
+  end
 
-    end
+  it "redirects to index if not a valid 5 digit zip code" do
+    get "/hello"
 
-    it "displays the correct caching time value" do
+    expect(response).to redirect_to(forecasts_index_path)
+  end
 
-    end
+  it "displays a negative temperature correctly" do
+
+  end
+
+  it "displays the correct caching time value" do
+
   end
 end

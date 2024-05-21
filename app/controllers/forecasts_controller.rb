@@ -6,6 +6,11 @@ class ForecastsController < ApplicationController
   end
 
   def create
+    zip_code = ZipCode.new(value: params[:address])
+    if zip_code.valid?
+      redirect_to action: "show", id: zip_code.value and return
+    end
+
     @address = Address.new(value: params[:address])
 
     if not @address.valid?
@@ -13,7 +18,7 @@ class ForecastsController < ApplicationController
     end
 
     results = Geocoder.search(@address.value)
-    highest = GeocoderHelpers.highest_confidence(results)
+    highest = GeocoderHelpers.best_result(results)
 
     redirect_to action: "show", id: highest.postal_code
   end
@@ -28,7 +33,7 @@ class ForecastsController < ApplicationController
 
     coords = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 24.hours do
       results = Geocoder.search(zip_code.value)
-      highest = GeocoderHelpers.highest_confidence(results)
+      highest = GeocoderHelpers.best_result(results)
       {lat: highest.latitude, lon: highest.longitude, county: highest.county}
     end
 
