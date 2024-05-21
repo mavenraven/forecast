@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-#TODO: set up webmock
 RSpec.describe "Forecasts", type: :request do
   describe "GET /" do
     it "renders the index page" do
@@ -42,6 +41,10 @@ RSpec.describe "Forecasts", type: :request do
       expect(response.body).to include("not found")
     end
   end
+
+  it "another weird address that broke during testing" do
+    post "/", params: {address: "222 main street troy mi"}
+  end
 end
 
 describe "GET /<zip_code>" do
@@ -62,7 +65,7 @@ describe "GET /<zip_code>" do
       get "/10001"
 
       expect(response.body).to include("New York")
-      temp = Nokogiri::HTML(response.body).css("#temperature").text
+      temp = Nokogiri::HTML(response.body).css("#temperature").text.strip
       expect(temp).to eq("81")
     end
   end
@@ -75,10 +78,17 @@ describe "GET /<zip_code>" do
   end
 
   it "displays a negative temperature correctly" do
+    VCR.use_cassette("negative_temperature") do
+      get "/11001"
+      expect(response.body).to include("-144")
+    end
   end
 
   it "displays an error if weather cannot be retrieved" do
 
+  end
+
+  it "uses city, and falls back to county if there is none" do
   end
 
   it "caches the weather information correctly" do

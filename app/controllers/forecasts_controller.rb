@@ -64,12 +64,6 @@ class ForecastsController < ApplicationController
 
     @current_temp = cached[:forecast_data]["properties"]["periods"][0]["temperature"]
     @cached_at = cached[:cached_at]
-
-    @is_negative = false
-    if @current_temp < 0
-      @is_negative = true
-    end
-
     @county = coords[:county]
   end
 end
