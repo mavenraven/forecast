@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.opencagedata.com/geocode/v1/json?key=<OPENCAGEDATA KEY>&language=en&q=222%20main%20street%20troy%20mi
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 May 2024 20:07:47 GMT
+      Server:
+      - Apache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Ratelimit-Limit:
+      - '2500'
+      X-Ratelimit-Remaining:
+      - '2197'
+      X-Ratelimit-Reset:
+      - '1716336000'
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '4146'
+      Content-Type:
+      - application/json; charset=utf-8
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"documentation":"https://opencagedata.com/api","licenses":[{"name":"see
+        attribution guide","url":"https://opencagedata.com/credits"}],"rate":{"limit":2500,"remaining":2197,"reset":1716336000},"results":[{"annotations":{"DMS":{"lat":"42\u00b0
+        32'' 26.26080'''' N","lng":"83\u00b0 8'' 47.99760'''' W"},"FIPS":{"state":"26"},"MGRS":"17TLH2372712037","Maidenhead":"EN82km29js","Mercator":{"x":-9255844.52,"y":5213412.142},"OSM":{"note_url":"https://www.openstreetmap.org/note/new#map=17/42.54063/-83.14667&layers=N","url":"https://www.openstreetmap.org/?mlat=42.54063&mlon=-83.14667#map=17/42.54063/-83.14667"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"dpsf5bq3n7b4wfk0yncc","qibla":51.93,"roadinfo":{"drive_on":"right","road":"N
+        Main St","speed_in":"mph"},"sun":{"rise":{"apparent":1716285960,"astronomical":1716278580,"civil":1716283980,"nautical":1716281460},"set":{"apparent":1716252780,"astronomical":1716260220,"civil":1716254820,"nautical":1716257280}},"timezone":{"name":"America/Detroit","now_in_dst":1,"offset_sec":-14400,"offset_string":"-0400","short_name":"EDT"},"what3words":{"words":"prompting.upgrading.dads"}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-MI"],"_category":"road","_normalized_city":"Clawson","_type":"road","continent":"North
+        America","country":"United States of America","country_code":"us","road":"N
+        Main St","state":"Michigan","state_code":"MI","town":"Clawson"},"confidence":6,"formatted":"N
+        Main St, Clawson, MI, United States of America","geometry":{"lat":42.540628,"lng":-83.146666}},{"annotations":{"DMS":{"lat":"42\u00b0
+        36'' 20.12400'''' N","lng":"83\u00b0 8'' 59.74800'''' W"},"FIPS":{"county":"26125","state":"26"},"MGRS":"17TLH2364219258","Maidenhead":"EN82ko25ai","Mercator":{"x":-9256207.867,"y":5223196.309},"OSM":{"note_url":"https://www.openstreetmap.org/note/new#map=17/42.60559/-83.14993&layers=N","url":"https://www.openstreetmap.org/?mlat=42.60559&mlon=-83.14993#map=17/42.60559/-83.14993"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"dpsf7uh5d1w7uzcg6ttj","qibla":51.92,"roadinfo":{"drive_on":"right","speed_in":"mph"},"sun":{"rise":{"apparent":1716285900,"astronomical":1716278520,"civil":1716283920,"nautical":1716281460},"set":{"apparent":1716252840,"astronomical":1716260220,"civil":1716254820,"nautical":1716257340}},"timezone":{"name":"America/Detroit","now_in_dst":1,"offset_sec":-14400,"offset_string":"-0400","short_name":"EDT"},"what3words":{"words":"grin.flight.scales"}},"bounds":{"northeast":{"lat":42.624208,"lng":-83.086882},"southwest":{"lat":42.5338,"lng":-83.209216}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-MI"],"_category":"place","_normalized_city":"Troy","_type":"city","continent":"North
+        America","country":"United States of America","country_code":"us","county":"Oakland
+        County","state":"Michigan","state_code":"MI","town":"Troy"},"confidence":6,"formatted":"Troy,
+        Michigan, United States of America","geometry":{"lat":42.60559,"lng":-83.14993}}],"status":{"code":200,"message":"OK"},"stay_informed":{"blog":"https://blog.opencagedata.com","mastodon":"https://en.osm.town/@opencage"},"thanks":"For
+        using an OpenCage API","timestamp":{"created_http":"Tue, 21 May 2024 20:07:47
+        GMT","created_unix":1716322067},"total_results":2}'
+  recorded_at: Tue, 21 May 2024 20:07:48 GMT
+recorded_with: VCR 6.2.0

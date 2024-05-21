@@ -42,8 +42,11 @@ RSpec.describe "Forecasts", type: :request do
     end
   end
 
-  it "another weird address that broke during testing" do
-    post "/", params: {address: "222 main street troy mi"}
+  it "an address that doesn't return a postal code" do
+    VCR.use_cassette("an_address_that_doesnt_return_a_postal_code") do
+      post "/", params: {address: "222 main street troy mi"}
+      expect(response.body).to include("not found")
+    end
   end
 end
 
