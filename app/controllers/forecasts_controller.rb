@@ -78,6 +78,10 @@ class ForecastsController < ApplicationController
       render :show and return
     end
 
+    if @weather[:current_temp] < 0
+      @is_negative = true
+    end
+
     @location = best_result.city.nil? ? best_result.county : best_result.city
   end
 end

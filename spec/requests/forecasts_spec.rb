@@ -109,11 +109,15 @@ describe "GET /<zip_code>" do
     expect(response).to redirect_to(forecasts_index_path)
   end
 
-  xit "displays a negative temperature correctly" do
-    #TODO: this is a false negative
+  it "displays a negative temperature correctly" do
     VCR.use_cassette("negative_temperature") do
       get "/11001"
-      expect(response.body).to include("-144")
+      # This isn't the best test assertion ever since it's looking deep at markup. The reason we use
+      # have to do this is that the temperature number is optically too heavy if we treat something like "-144"
+      # as something to be centered. Thus, we want flexbox to only center on the number itself, and not include
+      # the negative sign.
+      negative_sign_classes = Nokogiri::HTML(response.body).css("#negative_sign")
+      expect(negative_sign_classes.attr('class').to_s.split.filter{|x| x == "invisible"}.empty?).to be true
     end
   end
 
