@@ -14,6 +14,8 @@ extended foreacst difficult ["memorial Day"]
 simple tests are not working, like 10001. I would use Google geocoding api, but I
 didn't want to put down a credit card for this  to eliminate any chance of a suprise bill.
 
+34343 doesn't work for example
+
 error page results
 didnt use service objects
 county instead of city

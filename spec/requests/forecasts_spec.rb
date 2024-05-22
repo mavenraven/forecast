@@ -90,9 +90,11 @@ describe "GET /<zip_code>" do
   xit "returns an error if cache response is  nil" do
   end
 
-  xit "/34343" do
-    get "/34343"
-    expect(response.body).to include("-144")
+  it "works with a response with a city and no county" do
+    VCR.use_cassette("no_county") do
+      get "/34343"
+      expect(response.body).to include("Denver")
+    end
   end
 
   it "displays the correct conditions i.e. Cloudy, Sunny" do

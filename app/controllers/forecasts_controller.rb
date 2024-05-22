@@ -76,8 +76,9 @@ class ForecastsController < ApplicationController
     end
 
     @current_temp = cached[:forecast_data]["properties"]["periods"][0]["temperature"]
-    @forecast = cached[:forecast_data]["properties"]["periods"][0]["shortForecast"]
+    # Forecasts can come in as 'Chance Showers And Thunderstorms then Partly Cloudy', which isn't great for the UI layout
+    @forecast = cached[:forecast_data]["properties"]["periods"][0]["shortForecast"].split[0..1].join(' ')
     @cached_at = cached[:cached_at]
-    @location = highest.county
+    @location = highest.city.nil? ? highest.county : highest.city
   end
 end
