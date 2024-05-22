@@ -1,6 +1,15 @@
 
 module GeocoderHelpers
-  def self.best_result results
+  # The geolocation API that we're using returns multiple results.
+  # This method is a wrapper to grab the "best" one for use in the controllers, and cache it for later calls.
+  def self.cached_best_result address
+    Rails.cache.fetch address, skip_nil: true, expires_in: 30.minutes do
+      results = Geocoder.search(address)
+      GeocoderHelpers.filter_results(results)
+    end
+  end
+
+  def self.filter_results results
     highest_confidence = nil
     results.each do |result|
       if result.instance_values["data"]["components"]["country_code"] != "us"

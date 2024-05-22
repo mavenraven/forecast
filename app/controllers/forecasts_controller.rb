@@ -17,23 +17,19 @@ class ForecastsController < ApplicationController
       render :index and return
     end
 
-    highest = Rails.cache.fetch @address.value, skip_nil: true, expires_in: 30.minutes do
-      begin
-        results = Geocoder.search(@address.value)
-      rescue
-        @general_error = "Could not retrieve address."
-        render :index and return
-      end
-
-      highest = GeocoderHelpers.best_result(results)
-      if highest.nil? or highest.postal_code.empty?
-        @general_error = "Address not found."
-        render :index and return
-      end
-      highest
+    begin
+      best_result = GeocoderHelpers.cached_best_result @address.value
+    rescue
+      @general_error = "Could not retrieve address."
+      render :index and return
     end
 
-    redirect_to action: "show", id: highest.postal_code
+    if best_result.nil? or best_result.postal_code.empty?
+      @general_error = "Address not found."
+      render :index and return
+    end
+
+    redirect_to action: "show", id: best_result.postal_code
   end
 
   def show
@@ -44,25 +40,21 @@ class ForecastsController < ApplicationController
       redirect_to action: "index" and return
     end
 
-    highest = Rails.cache.fetch zip_code.value, skip_nil: true, expires_in: 30.minutes do
-      logger.debug "missed cache for lat lon"
-
-      begin
-        results = Geocoder.search(zip_code.value)
-      rescue
-        @general_error = "Could not retrieve weather."
-        render :show and return
-      end
-
-      highest = GeocoderHelpers.best_result(results)
-      if highest.nil?
-        @general_error = "Could not retrieve weather."
-        render :show and return
-      end
-      highest
+    # The weather API used only takes lat/lon, and not zip codes.
+    # So before we
+    begin
+      best_result = GeocoderHelpers.cached_best_result zip_code.value
+    rescue
+      @general_error = "Could not retrieve weather."
+      render :show and return
     end
 
-    coords = {lat: highest.latitude, lon: highest.longitude}
+    if best_result.nil?
+      @general_error = "Could not retrieve weather."
+      render :show and return
+    end
+
+    coords = {lat: best_result.latitude, lon: best_result.longitude}
     cached = Rails.cache.fetch coords, skip_nil: true, expires_in: 30.minutes do
       logger.debug "missed cache for weather data"
 
@@ -79,6 +71,6 @@ class ForecastsController < ApplicationController
     # Forecasts can come in as 'Chance Showers And Thunderstorms then Partly Cloudy', which isn't great for the UI layout
     @forecast = cached[:forecast_data]["properties"]["periods"][0]["shortForecast"].split[0..1].join(' ')
     @cached_at = cached[:cached_at]
-    @location = highest.city.nil? ? highest.county : highest.city
+    @location = best_result.city.nil? ? best_result.county : best_result.city
   end
 end

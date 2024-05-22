@@ -1,0 +1,90 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.opencagedata.com/geocode/v1/json?key=<OPENCAGEDATA KEY>&language=en&q=1%20Apple%20Park%20Way.%20Cupertino,%20CA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 22 May 2024 02:16:51 GMT
+      Server:
+      - Apache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Ratelimit-Limit:
+      - '2500'
+      X-Ratelimit-Remaining:
+      - '2467'
+      X-Ratelimit-Reset:
+      - '1716422400'
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '12786'
+      Content-Type:
+      - application/json; charset=utf-8
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"documentation":"https://opencagedata.com/api","licenses":[{"name":"see
+        attribution guide","url":"https://opencagedata.com/credits"}],"rate":{"limit":2500,"remaining":2467,"reset":1716422400},"results":[{"annotations":{"DMS":{"lat":"37\u00b0
+        19'' 49.91916'''' N","lng":"122\u00b0 0'' 39.82428'''' W"},"FIPS":{"county":"06085","state":"06"},"MGRS":"10SEG8761031999","Maidenhead":"CM87xh89qh","Mercator":{"x":-13582209.326,"y":4459365.859},"OSM":{"edit_url":"https://www.openstreetmap.org/edit?node=5062598038#map=17/37.33053/-122.01106","note_url":"https://www.openstreetmap.org/note/new#map=17/37.33053/-122.01106&layers=N","url":"https://www.openstreetmap.org/?mlat=37.33053&mlon=-122.01106#map=17/37.33053/-122.01106"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"9q9href605tzvsxrff55","qibla":19.34,"roadinfo":{"drive_on":"right","road":"Apple
+        Park Way","speed_in":"mph"},"sun":{"rise":{"apparent":1716382500,"astronomical":1716376080,"civil":1716380700,"nautical":1716378480},"set":{"apparent":1716347700,"astronomical":1716354120,"civil":1716349500,"nautical":1716351720}},"timezone":{"name":"America/Los_Angeles","now_in_dst":1,"offset_sec":-25200,"offset_string":"-0700","short_name":"PDT"},"what3words":{"words":"nights.order.decks"}},"bounds":{"northeast":{"lat":37.3305831,"lng":-122.0110123},"southwest":{"lat":37.3304831,"lng":-122.0111123}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-CA"],"_category":"building","_normalized_city":"Cupertino","_type":"building","city":"Cupertino","continent":"North
+        America","country":"United States","country_code":"us","county":"Santa Clara
+        County","house_number":"1","postcode":"94087","road":"Apple Park Way","state":"California","state_code":"CA"},"confidence":10,"formatted":"1
+        Apple Park Way, Cupertino, CA 94087, United States of America","geometry":{"lat":37.3305331,"lng":-122.0110623}},{"annotations":{"DMS":{"lat":"37\u00b0
+        20'' 1.31136'''' N","lng":"122\u00b0 0'' 40.79484'''' W"},"FIPS":{"county":"06085","state":"06"},"MGRS":"10SEG8758332349","Maidenhead":"CM87xi80pc","Mercator":{"x":-13582239.338,"y":4459807.013},"OSM":{"edit_url":"https://www.openstreetmap.org/edit?node=5055072366#map=17/37.33370/-122.01133","note_url":"https://www.openstreetmap.org/note/new#map=17/37.33370/-122.01133&layers=N","url":"https://www.openstreetmap.org/?mlat=37.33370&mlon=-122.01133#map=17/37.33370/-122.01133"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"9q9hrs6h9csuuu434d29","qibla":19.34,"roadinfo":{"drive_on":"right","road":"Apple
+        Park Way","speed_in":"mph"},"sun":{"rise":{"apparent":1716382500,"astronomical":1716376080,"civil":1716380700,"nautical":1716378480},"set":{"apparent":1716347700,"astronomical":1716354120,"civil":1716349500,"nautical":1716351720}},"timezone":{"name":"America/Los_Angeles","now_in_dst":1,"offset_sec":-25200,"offset_string":"-0700","short_name":"PDT"},"what3words":{"words":"first.range.trade"}},"bounds":{"northeast":{"lat":37.3337476,"lng":-122.0112819},"southwest":{"lat":37.3336476,"lng":-122.0113819}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-CA"],"_category":"transportation","_normalized_city":"Cupertino","_type":"parking","city":"Cupertino","continent":"North
+        America","country":"United States","country_code":"us","county":"Santa Clara
+        County","house_number":"1","parking":"Entrances 5\u20139","postcode":"94087","road":"Apple
+        Park Way","state":"California","state_code":"CA"},"confidence":9,"formatted":"Entrances
+        5\u20139, 1 Apple Park Way, Cupertino, CA 94087, United States of America","geometry":{"lat":37.3336976,"lng":-122.0113319}},{"annotations":{"DMS":{"lat":"37\u00b0
+        19'' 58.48068'''' N","lng":"122\u00b0 0'' 36.91620'''' W"},"FIPS":{"county":"06085","state":"06"},"MGRS":"10SEG8767932263","Maidenhead":"CM87xh89sv","Mercator":{"x":-13582119.402,"y":4459697.395},"OSM":{"edit_url":"https://www.openstreetmap.org/edit?node=5055063495#map=17/37.33291/-122.01025","note_url":"https://www.openstreetmap.org/note/new#map=17/37.33291/-122.01025&layers=N","url":"https://www.openstreetmap.org/?mlat=37.33291&mlon=-122.01025#map=17/37.33291/-122.01025"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"9q9hrs4zgp062t4zf0zu","qibla":19.34,"roadinfo":{"drive_on":"right","road":"Apple
+        Park Way","speed_in":"mph"},"sun":{"rise":{"apparent":1716382500,"astronomical":1716376080,"civil":1716380700,"nautical":1716378480},"set":{"apparent":1716347700,"astronomical":1716354120,"civil":1716349500,"nautical":1716351720}},"timezone":{"name":"America/Los_Angeles","now_in_dst":1,"offset_sec":-25200,"offset_string":"-0700","short_name":"PDT"},"what3words":{"words":"given.soak.flesh"}},"bounds":{"northeast":{"lat":37.3329613,"lng":-122.0102045},"southwest":{"lat":37.3328613,"lng":-122.0103045}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-CA"],"_category":"transportation","_normalized_city":"Cupertino","_type":"parking","city":"Cupertino","continent":"North
+        America","country":"United States","country_code":"us","county":"Santa Clara
+        County","house_number":"1","parking":"Entrances 1\u20134","postcode":"94087","road":"Apple
+        Park Way","state":"California","state_code":"CA"},"confidence":9,"formatted":"Entrances
+        1\u20134, 1 Apple Park Way, Cupertino, CA 94087, United States of America","geometry":{"lat":37.3329113,"lng":-122.0102545}},{"annotations":{"DMS":{"lat":"37\u00b0
+        20'' 10.34340'''' N","lng":"122\u00b0 0'' 25.18632'''' W"},"FIPS":{"county":"06085","state":"06"},"MGRS":"10SEG8796432632","Maidenhead":"CM87xi90dq","Mercator":{"x":-13581756.69,"y":4460156.784},"OSM":{"edit_url":"https://www.openstreetmap.org/edit?node=8666490737#map=17/37.33621/-122.00700","note_url":"https://www.openstreetmap.org/note/new#map=17/37.33621/-122.00700&layers=N","url":"https://www.openstreetmap.org/?mlat=37.33621&mlon=-122.00700#map=17/37.33621/-122.00700"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"9q9hrsv5nvmg49sbwhte","qibla":19.34,"roadinfo":{"drive_on":"right","road":"Apple
+        Park Way","speed_in":"mph"},"sun":{"rise":{"apparent":1716382500,"astronomical":1716376080,"civil":1716380700,"nautical":1716378480},"set":{"apparent":1716347700,"astronomical":1716354120,"civil":1716349500,"nautical":1716351720}},"timezone":{"name":"America/Los_Angeles","now_in_dst":1,"offset_sec":-25200,"offset_string":"-0700","short_name":"PDT"},"what3words":{"words":"bench.chefs.grab"}},"bounds":{"northeast":{"lat":37.3362565,"lng":-122.0069462},"southwest":{"lat":37.3361565,"lng":-122.0070462}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-CA"],"_category":"commerce","_normalized_city":"Cupertino","_type":"fast_food","city":"Cupertino","continent":"North
+        America","country":"United States","country_code":"us","county":"Santa Clara
+        County","fast_food":"Caff\u00e8 Macs","house_number":"1","postcode":"94087","road":"Apple
+        Park Way","state":"California","state_code":"CA"},"confidence":9,"formatted":"Caff\u00e8
+        Macs, 1 Apple Park Way, Cupertino, CA 94087, United States of America","geometry":{"lat":37.3362065,"lng":-122.0069962}},{"annotations":{"DMS":{"lat":"37\u00b0
+        19'' 30.35640'''' N","lng":"122\u00b0 2'' 9.20400'''' W"},"FIPS":{"state":"06"},"MGRS":"10SEG8541731373","Maidenhead":"CM87xh58qa","Mercator":{"x":-13584973.133,"y":4458608.352},"OSM":{"note_url":"https://www.openstreetmap.org/note/new#map=17/37.32510/-122.03589&layers=N","url":"https://www.openstreetmap.org/?mlat=37.32510&mlon=-122.03589#map=17/37.32510/-122.03589"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"9q9hr4b4mwv01xr6t7xe","qibla":19.31,"roadinfo":{"drive_on":"right","road":"Park
+        Cir W","speed_in":"mph"},"sun":{"rise":{"apparent":1716382500,"astronomical":1716376080,"civil":1716380700,"nautical":1716378480},"set":{"apparent":1716347760,"astronomical":1716354180,"civil":1716349500,"nautical":1716351720}},"timezone":{"name":"America/Los_Angeles","now_in_dst":1,"offset_sec":-25200,"offset_string":"-0700","short_name":"PDT"},"what3words":{"words":"fortunate.bells.sports"}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-CA"],"_category":"road","_normalized_city":"Cupertino","_type":"road","continent":"North
+        America","country":"United States of America","country_code":"us","road":"Park
+        Cir W","state":"California","state_code":"CA","town":"Cupertino"},"confidence":5,"formatted":"Park
+        Cir W, Cupertino, CA, United States of America","geometry":{"lat":37.325099,"lng":-122.03589}},{"annotations":{"DMS":{"lat":"37\u00b0
+        19'' 22.80000'''' N","lng":"122\u00b0 1'' 55.84800'''' W"},"FIPS":{"county":"06085","state":"06"},"MGRS":"10SEG8574831143","Maidenhead":"CM87xh67dm","Mercator":{"x":-13584560.138,"y":4458315.768},"OSM":{"note_url":"https://www.openstreetmap.org/note/new#map=17/37.32300/-122.03218&layers=N","url":"https://www.openstreetmap.org/?mlat=37.32300&mlon=-122.03218#map=17/37.32300/-122.03218"},"UN_M49":{"regions":{"AMERICAS":"019","NORTHERN_AMERICA":"021","US":"840","WORLD":"001"},"statistical_groupings":["MEDC"]},"callingcode":1,"currency":{"alternate_symbols":["US$"],"decimal_mark":".","disambiguate_symbol":"US$","html_entity":"$","iso_code":"USD","iso_numeric":"840","name":"United
+        States Dollar","smallest_denomination":1,"subunit":"Cent","subunit_to_unit":100,"symbol":"$","symbol_first":1,"thousands_separator":","},"flag":"\ud83c\uddfa\ud83c\uddf8","geohash":"9q9hr46yhp7rjy8gqg3d","qibla":19.32,"roadinfo":{"drive_on":"right","speed_in":"mph"},"sun":{"rise":{"apparent":1716382500,"astronomical":1716376080,"civil":1716380700,"nautical":1716378480},"set":{"apparent":1716347760,"astronomical":1716354180,"civil":1716349500,"nautical":1716351720}},"timezone":{"name":"America/Los_Angeles","now_in_dst":1,"offset_sec":-25200,"offset_string":"-0700","short_name":"PDT"},"what3words":{"words":"loved.values.fans"}},"bounds":{"northeast":{"lat":37.34052,"lng":-121.995833},"southwest":{"lat":37.27846,"lng":-122.092176}},"components":{"ISO_3166-1_alpha-2":"US","ISO_3166-1_alpha-3":"USA","ISO_3166-2":["US-CA"],"_category":"place","_normalized_city":"Cupertino","_type":"city","continent":"North
+        America","country":"United States of America","country_code":"us","county":"Santa
+        Clara County","state":"California","state_code":"CA","town":"Cupertino"},"confidence":7,"formatted":"Cupertino,
+        California, United States of America","geometry":{"lat":37.323,"lng":-122.03218}}],"status":{"code":200,"message":"OK"},"stay_informed":{"blog":"https://blog.opencagedata.com","mastodon":"https://en.osm.town/@opencage"},"thanks":"For
+        using an OpenCage API","timestamp":{"created_http":"Wed, 22 May 2024 02:16:51
+        GMT","created_unix":1716344211},"total_results":6}'
+  recorded_at: Wed, 22 May 2024 02:16:52 GMT
+recorded_with: VCR 6.2.0

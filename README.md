@@ -16,12 +16,16 @@ didn't want to put down a credit card for this  to eliminate any chance of a sup
 
 34343 doesn't work for example
 
+didn't do extended forecast
+
 error page results
 didnt use service objects
 county instead of city
 using memory cache in prod, would use redis for a real deployment
 
 fix placeholder thing in error messages
+
+getting flash to work correctly
 
 fix http://localhost:3000/10007
 Things you may want to cover:
