@@ -1,5 +1,5 @@
-<% if @general_error %>
-  <div class=" text-red-600 pt-12 pb-2 text-sm tracking-tight"> <%= @general_error %></div>
+<% if flash[:alert] %>
+  <div class=" text-red-600 pt-12 pb-2 text-sm tracking-tight"> <%= flash[:alert] %></div>
 <% end %>
 <%= form_with local:true, data: {turbo: false}, html: { class: "flex flex-col justify-between #{"pt-12" unless @general_error} pb-12" } do |form| %>
   <%= form.label :address,

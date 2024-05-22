@@ -25,16 +25,14 @@ class ForecastsController < ApplicationController
     begin
       best_result = GeocoderHelpers.cached_best_result @address.value
     rescue
-      #TODO: use flash instead
-      @general_error = "Could not retrieve address."
+      flash.now[:alert] = "Could not retrieve address."
       render :index and return
     end
 
     # Unfortunately, the geocoding API isn't great about consistently returning
     # data. If we get something without a zip code, we also bail.
     if best_result.nil? or best_result.postal_code.empty?
-      #TODO: use flash instead
-      @general_error = "Address not found."
+      flash.now[:alert] = "Address not found."
       render :index and return
     end
 
@@ -56,15 +54,13 @@ class ForecastsController < ApplicationController
     begin
       best_result = GeocoderHelpers.cached_best_result zip_code.value
     rescue
-      #TODO: use flash instead
-      @general_error = "Could not retrieve location."
+      flash.now[:alert] = "Could not retrieve location."
       render :show and return
     end
 
     # If we don't get back any results that can be used to pass to the weather API, we bail.
     if best_result.nil?
-      #TODO: use flash instead
-      @general_error = "Could not retrieve location."
+      flash.now[:alert] = "Could not retrieve location."
       render :show and return
     end
 
@@ -72,7 +68,7 @@ class ForecastsController < ApplicationController
     begin
       @weather = WeatherClient.get_cached_weather_from_lat_lon best_result.latitude, best_result.longitude
     rescue
-      @general_error = "Could not retrieve weather."
+      flash.now[:alert] = "Could not retrieve weather."
       render :show and return
     end
 
