@@ -32,10 +32,10 @@ hobby plan, so you may see a ~30 second "wake up" time.
 helper module for geocoding live in `/lib`.
 
 `Address` and `ZipCode` models exist as a place to centralize validation concerns, but are
-not persisted. `TimeCop` is used for testing the caching indicator product requirement.
+not persisted.
 
 The business logic is tested primarily through request specs. `VCR` is used
-for API stubbing.
+for API stubbing. `TimeCop` is used for testing the caching indicator product requirement.
 
 `ActiveSupport::Cache::Store` is used for caching. In a real production app,
 we would use `ActiveSupport::Cache::RedisCacheStore` as the backing store.
