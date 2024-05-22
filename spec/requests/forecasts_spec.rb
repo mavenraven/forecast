@@ -11,7 +11,6 @@ RSpec.describe "Forecasts", type: :request do
   describe "POST /" do
     it "redirects to the appropriate zip code" do
       VCR.use_cassette("forecast_redirect") do
-
         post "/", params: {address: "1 Apple Park Way. Cupertino, CA"}
         expect(response).to redirect_to(forecasts_show_path(94087))
       end
@@ -60,7 +59,6 @@ end
 describe "GET /<zip_code>" do
   it "retrieves the weather for a given zip code" do
     VCR.use_cassette("brooklyn_forecast") do
-
       get "/11206"
 
       expect(response.body).to include("Brooklyn")
@@ -71,7 +69,6 @@ describe "GET /<zip_code>" do
 
   it "works correctly with address(es) that have a higher confidence than any US address" do
     VCR.use_cassette("high_confidence_non_us") do
-
       get "/10001"
 
       expect(response.body).to include("New York")

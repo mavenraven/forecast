@@ -13,6 +13,7 @@ RSpec.describe 'GeocoderHelpers' do
           result_class.new({"data" => {"confidence" => 2, "components" => {"country_code" => "us"}}}),
           result_class.new({"data" => {"confidence" => 3, "components" => {"country_code" => "us"}}})
         ]
+
         expect(GeocoderHelpers.filter_results(results)).to equal(results[2])
       end
 
@@ -25,6 +26,7 @@ RSpec.describe 'GeocoderHelpers' do
           result_class.new({"data" => {"confidence" => 3, "components" => {"country_code" => "us"}}}),
           result_class.new({"data" => {"confidence" => 9, "components" => {"country_code" => "es"}}})
         ]
+
         expect(GeocoderHelpers.filter_results(results)).to equal(results[2])
       end
     end
@@ -58,8 +60,6 @@ RSpec.describe 'GeocoderHelpers' do
 
     context 'when collection is empty' do
       it 'returns nil' do
-        result_class = Struct.new(:instance_values)
-
         results = [
         ]
 

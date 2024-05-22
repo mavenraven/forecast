@@ -18,6 +18,7 @@ didn't want to put down a credit card for this  to eliminate any chance of a sup
 
 didn't do extended forecast
 
+clean up forecast splitting logic
 error page results
 didnt use service objects
 county instead of city
