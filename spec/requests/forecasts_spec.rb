@@ -96,8 +96,10 @@ describe "GET /<zip_code>" do
   end
 
   it "displays the correct conditions i.e. Cloudy, Sunny" do
-    get "/10008"
-    expect(response.body).to include("Mostly Clear")
+    VCR.use_cassette("forecast") do
+      get "/10008"
+      expect(response.body).to include("Mostly Clear")
+    end
   end
 
   it "redirects to index if not a valid 5 digit zip code" do
