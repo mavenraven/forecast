@@ -48,39 +48,14 @@ There are number of limitations and known issues:
 * Similarly, none of the free weather APIs that I tested were that great. The one
   that I settled on (`api.weather.gov`) doesn't offer the daily high / low, for example.
 
+* I noticed some serious discrepancies in the weather returned by the API vs. Google. For example,
+* last night in Brooklyn, `api.weather.gov` said that it was 63°, which Google said that it was 70°.
+  
 * The extended forecast is hardcoded placeholder values. This is possible to build with
   `api.weather.gov`, but I didn't have time to build this out.
 
 * The forecast description from `api.weather.gov` can be as long as 8 words. I just
   use the first two words. An enhancement could be made to summarize the phrase instead.
   
-* 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-
-routing resources
-limitiations:
-didn't get an api with h/l
-extended foreacst difficult ["memorial Day"]
-
-simple tests are not working, like 10001. I would use Google geocoding api, but I
-didn't want to put down a credit card for this  to eliminate any chance of a suprise bill.
-
-34343 doesn't work for example
-
-
-clean up forecast splitting logic
-error page results
-didnt use service objects
-county instead of city
-using memory cache in prod, would use redis for a real deployment
-
-fix placeholder thing in error messages
-
-getting flash to work correctly
-
-weather is wildly off on the API :( 63 degrees vs actually 70 accordingto google
-
-extended forecast
+* I was unable to get `resources: forecasts, path: '/'` working correctly with the
+  path helpers.
