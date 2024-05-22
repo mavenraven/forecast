@@ -1,5 +1,3 @@
-require 'pry'
-
 class ForecastsController < ApplicationController
   def index
     @address = Address.new
