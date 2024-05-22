@@ -56,7 +56,7 @@ There are a number of limitations and known issues:
   that I settled on (`api.weather.gov`) doesn't offer the daily high / low.
 
 * In addition, I noticed some serious discrepancies in the weather returned by the API vs. Google. For example,
-  last night in Brooklyn, `api.weather.gov` said that it was 63°, which Google said that it was 70°.
+  last night in Brooklyn, `api.weather.gov` said that it was 63°, while Google said that it was 70°.
   
 * The extended forecast is hardcoded placeholder values. This is possible to build with
   `api.weather.gov`, but I didn't have time to build this out.
@@ -65,4 +65,4 @@ There are a number of limitations and known issues:
   use the first two words. An enhancement could be made to summarize the phrase instead.
   
 * I was unable to get `resources: forecasts, path: '/'` working correctly with the
-  path helpers.
+  path helpers, so I explicitly wrote out the routes instead.
