@@ -59,34 +59,25 @@ class ForecastsController < ApplicationController
       best_result = GeocoderHelpers.cached_best_result zip_code.value
     rescue
       #TODO: use flash instead
-      @general_error = "Could not retrieve weather."
+      @general_error = "Could not retrieve location."
       render :show and return
     end
 
     # If we don't get back any results that can be used to pass to the weather API, we bail.
     if best_result.nil?
       #TODO: use flash instead
+      @general_error = "Could not retrieve location."
+      render :show and return
+    end
+
+    # Finally grab the weather data. At last!
+    begin
+      @weather = WeatherClient.get_cached_weather_from_lat_lon best_result.latitude, best_result.longitude
+    rescue
       @general_error = "Could not retrieve weather."
       render :show and return
     end
 
-    coords = {lat: best_result.latitude, lon: best_result.longitude}
-    cached = Rails.cache.fetch coords, skip_nil: true, expires_in: 30.minutes do
-      logger.debug "missed cache for weather data"
-
-      grid_url  = "https://api.weather.gov/points/#{coords[:lat]},#{coords[:lon]}"
-      grid_resp = HTTParty.get(grid_url)
-      grid_data = JSON.parse(grid_resp)
-      forecast_url = grid_data["properties"]["forecast"]
-
-      forecast_resp = HTTParty.get(forecast_url)
-      {forecast_data: JSON.parse(forecast_resp), cached_at: Time.now}
-    end
-
-    @current_temp = cached[:forecast_data]["properties"]["periods"][0]["temperature"]
-    # Forecasts can come in as 'Chance Showers And Thunderstorms then Partly Cloudy', which isn't great for the UI layout
-    @forecast = cached[:forecast_data]["properties"]["periods"][0]["shortForecast"].split[0..1].join(' ')
-    @cached_at = cached[:cached_at]
     @location = best_result.city.nil? ? best_result.county : best_result.city
   end
 end
