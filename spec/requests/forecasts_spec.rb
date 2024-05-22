@@ -87,15 +87,17 @@ describe "GET /<zip_code>" do
     expect(response.body).to include("not retrieve")
   end
 
-  xit "returns an error if unable to get weather from api" do
-  end
-
   xit "returns an error if cache response is  nil" do
   end
 
   xit "/34343" do
     get "/34343"
     expect(response.body).to include("-144")
+  end
+
+  it "displays the correct conditions i.e. Cloudy, Sunny" do
+    get "/10008"
+    expect(response.body).to include("Mostly Clear")
   end
 
   it "redirects to index if not a valid 5 digit zip code" do

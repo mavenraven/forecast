@@ -76,6 +76,7 @@ class ForecastsController < ApplicationController
     end
 
     @current_temp = cached[:forecast_data]["properties"]["periods"][0]["temperature"]
+    @forecast = cached[:forecast_data]["properties"]["periods"][0]["shortForecast"]
     @cached_at = cached[:cached_at]
     @location = highest.county
   end
