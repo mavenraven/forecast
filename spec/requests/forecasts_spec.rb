@@ -80,11 +80,17 @@ describe "GET /<zip_code>" do
     end
   end
 
-  it "returns an error if theres no results for zip code" do
+  it "returns an error if there are no results for zip code" do
     allow(Geocoder).to receive(:search).and_return([])
 
     get "/38485"
     expect(response.body).to include("not retrieve")
+  end
+
+  xit "returns an error if unable to get weather from api" do
+  end
+
+  xit "returns an error if cache response is  nil" do
   end
 
   xit "/34343" do
