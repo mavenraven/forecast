@@ -31,18 +31,17 @@ hobby plan, so you may see a ~30 second "wake up" time.
 `ForecastsController` is where the majority of the logic lives. A weather client and
 helper module for geocoding live in `/lib`.
 
-`Address` and `ZipCode` models exist as place to centralize validation concerns, but are
-not persisted.
+`Address` and `ZipCode` models exist as a place to centralize validation concerns, but are
+not persisted. `TimeCop` is used for testing the caching indicator product requirement.
 
 The business logic is tested primarily through request specs. `VCR` is used
 for API stubbing.
 
 `ActiveSupport::Cache::Store` is used for caching. In a real production app,
-we would use ` ActiveSupport::Cache::RedisCacheStore` as the backing store.
+we would use `ActiveSupport::Cache::RedisCacheStore` as the backing store.
 
 I didn't use any service objects. If the controllers were more complex, I would have
-split the logic out, but I felt that it's simple enough with the other helpers that were
-created.
+split the logic out to make it easier to unit test the business rules. 
 
 ## Limitations and Future Enhancements
 
@@ -57,7 +56,7 @@ There are number of limitations and known issues:
   that I settled on (`api.weather.gov`) doesn't offer the daily high / low, for example.
 
 * I noticed some serious discrepancies in the weather returned by the API vs. Google. For example,
-* last night in Brooklyn, `api.weather.gov` said that it was 63°, which Google said that it was 70°.
+  last night in Brooklyn, `api.weather.gov` said that it was 63°, which Google said that it was 70°.
   
 * The extended forecast is hardcoded placeholder values. This is possible to build with
   `api.weather.gov`, but I didn't have time to build this out.
