@@ -6,8 +6,8 @@
 2. It accepts an address as input from the user.
 3. Given the address, it displays the weather forecast data to the user.
    At minimum, this includes the current temperature, but could also include things like the daily high/low or extended forecast.
-4. Cache the forecast details for 30 minutes for all subsequent requests by zip codes.
-   Display an indicator if the result is pulled from the cache. 
+4. It should cache the forecast details for 30 minutes for all subsequent requests by zip codes.
+   In addition, it should display an indicator if the result is pulled from the cache. 
 
 ## Solution
 My solution uses two pages: an index page and a show page for zip codes.
