@@ -1,18 +1,26 @@
 # Forecasts
 
 ## Requirements
-Forecasts is a small Rails app that I wrote for a take home interview. The requirements were:
+`Forecasts` is a small Rails app that I wrote for a take home interview. The requirements were:
 1. The project must be completed in Ruby on Rails.
 2. It accepts an address as input from the user.
 3. Given the address, it displays the weather forecast data to the user.
-   At minimum, this includes the current temperature, but could also include things like the high/low or extended forecast.
+   At minimum, this includes the current temperature, but could also include things like the daily high/low or extended forecast.
 4. Cache the forecast details for 30 minutes for all subsequent requests by zip codes.
-   Display indicator if result is pulled from cache. 
+   Display an indicator if the result is pulled from the cache. 
 
 ## Solution
-My solution uses 2 pages. The index page has a form that accepts a free form
-address. The form is then POSTed to `forecasts#create` for geocoding. If we can
+My solution uses two pages: an index page and a show page for zip codes.
+
+The index page has a form that accepts a free form address.
+The form is then `POST`ed to `forecasts#create` for geocoding. If we can
 successfully turn the address into a zip code, the user is redirected to `/<zip code>`.
+
+The show page uses the zip code from the path to get a lat and lon that can be passed
+to the weather API. The information is then displayed to the user.
+
+Error states like form validation and connection issues with the third party APIs
+are accounted for in the UI.
 
 ## Live Demo
 A demo can be seen at https://forecasts.onrender.com/. Note that this is using render's
