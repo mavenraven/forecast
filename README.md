@@ -49,13 +49,13 @@ There are a number of limitations and known issues:
 
 * The chosen geocoding API doesn't work very well. For example, `34343` is mapped
   to Denver, but it's actually in Sarasota, FL. In a real project, I would use
-  Google's geocoding API, but I didn't to use any service that required a credit
+  Google's geocoding API, but I didn't want to use any service that required a credit
   card or have more of a surface area than geocoding to avoid any possibility of surprise bills.
 
 * Similarly, none of the free weather APIs that I tested were that great. The one
-  that I settled on (`api.weather.gov`) doesn't offer the daily high / low, for example.
+  that I settled on (`api.weather.gov`) doesn't offer the daily high / low.
 
-* I noticed some serious discrepancies in the weather returned by the API vs. Google. For example,
+* In addition, I noticed some serious discrepancies in the weather returned by the API vs. Google. For example,
   last night in Brooklyn, `api.weather.gov` said that it was 63°, which Google said that it was 70°.
   
 * The extended forecast is hardcoded placeholder values. This is possible to build with
