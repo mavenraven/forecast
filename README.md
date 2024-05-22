@@ -45,12 +45,12 @@ split the logic out to make it easier to unit test the business rules.
 
 ## Limitations and Future Enhancements
 
-There are number of limitations and known issues:
+There are a number of limitations and known issues:
 
 * The chosen geocoding API doesn't work very well. For example, `34343` is mapped
   to Denver, but it's actually in Sarasota, FL. In a real project, I would use
   Google's geocoding API, but I didn't to use any service that required a credit
-  card or have more of a surface area than just geocoding.
+  card or have more of a surface area than geocoding to avoid any possibility of surprise bills.
 
 * Similarly, none of the free weather APIs that I tested were that great. The one
   that I settled on (`api.weather.gov`) doesn't offer the daily high / low, for example.
