@@ -87,9 +87,6 @@ describe "GET /<zip_code>" do
     expect(response.body).to include("not retrieve")
   end
 
-  xit "returns an error if cache response is  nil" do
-  end
-
   it "works with a response with a city and no county" do
     VCR.use_cassette("no_county") do
       get "/34343"
@@ -125,14 +122,14 @@ describe "GET /<zip_code>" do
     allow(Geocoder).to receive(:search).and_raise("geocoding error")
 
     get "/12643"
-    expect(response.body).to include("Could not")
+    expect(response.body).to include("not retrieve")
   end
 
-  xit "displays an error if weather cannot be retrieved" do
-    allow(Geocoder).to receive(:search).and_raise("geocoding error")
+  it "displays an error if weather cannot be retrieved" do
+    allow(WeatherClient).to receive(:get_cached_weather_from_lat_lon).and_raise("weather error")
 
     get "/11001"
-    expect(response.body).to include("Could not")
+    expect(response.body).to include("not retrieve")
   end
 
   it "caches the weather information correctly" do
