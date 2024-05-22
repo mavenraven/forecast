@@ -27,6 +27,10 @@ fix placeholder thing in error messages
 
 getting flash to work correctly
 
+weather is wildly off on the API :( 63 degrees vs actually 70 accordingto google
+
+extended forecast
+
 fix http://localhost:3000/10007
 Things you may want to cover:
 
