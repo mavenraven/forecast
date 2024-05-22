@@ -78,6 +78,8 @@ class ForecastsController < ApplicationController
       render :show and return
     end
 
+    # This is needed because if we center the whole number, e.g. "-100", it will
+    # optically look too far to the right.
     if @weather[:current_temp] < 0
       @is_negative = true
     end
