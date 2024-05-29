@@ -6,7 +6,7 @@ module WeatherClient
       grid_url  = "https://api.weather.gov/points/#{lat},#{lon}"
       grid_resp = HTTParty.get(grid_url)
       grid_data = JSON.parse(grid_resp)
-      forecast_url = grid_data["properties"]["forecast"]
+      forecast_url = grid_data["properties"]["forecastHourly"]
 
       forecast_resp = HTTParty.get(forecast_url)
       {forecast_data: JSON.parse(forecast_resp), cached_at: Time.now}

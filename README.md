@@ -55,9 +55,6 @@ There are a number of limitations and known issues:
 * Similarly, none of the free weather APIs that I tested were that great. The one
   that I settled on (`api.weather.gov`) doesn't offer the daily high / low.
 
-* In addition, I noticed some large discrepancies in the weather returned by the API vs. Google. For example,
-  last night in Brooklyn, `api.weather.gov` said that it was 63°, while Google said that it was 70°.
-  
 * The extended forecast is hardcoded placeholder values. This is possible to build with
   `api.weather.gov`, but I didn't have time to build this out.
 
