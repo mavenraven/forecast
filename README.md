@@ -35,7 +35,7 @@ helper module for geocoding live in `/lib`.
 not persisted.
 
 The business logic is tested primarily through request specs. `VCR` is used
-for API stubbing. `TimeCop` is used for testing the caching indicator product requirement.
+for API stubbing. `ActiveSupport::Testing:TimeHelpers` are used for testing the caching indicator product requirement.
 
 `ActiveSupport::Cache::Store` is used for caching. In a real production app,
 we would use `ActiveSupport::Cache::RedisCacheStore` as the backing store.

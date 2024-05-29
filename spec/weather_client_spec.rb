@@ -6,7 +6,7 @@ RSpec.describe 'WeatherClient' do
   describe 'get cached weather from lat lon' do
     it "happy path" do
       now = Time.utc(2024, 5, 21, 12, 30)
-      Timecop.freeze(now) do
+      travel_to now do
         VCR.use_cassette("get_cached_weather_from_lat_lon_happy_path") do
           result = WeatherClient.get_cached_weather_from_lat_lon 40.717089, -73.957901
           expect(result[:current_temp]).to eq(63)

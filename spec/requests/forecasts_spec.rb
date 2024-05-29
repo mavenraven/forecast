@@ -132,22 +132,18 @@ describe "GET /<zip_code>" do
   it "caches the weather information correctly" do
     VCR.use_cassette("weather_caching") do
       now = Time.utc(2024, 5, 21, 12, 30)
-      Timecop.freeze(now) do
+      travel_to now do
         get "/10002"
         expect(response.body).to include("less than a minute ago")
-      end
 
-      Timecop.freeze(now + 15.minutes) do
+        travel_to(now + 15.minutes)
         get "/10002"
         expect(response.body).to include("15 minutes ago")
-      end
 
-      Timecop.freeze(now + 31.minutes) do
+        travel_to(now + 31.minutes)
         get "/10002"
         expect(response.body).to include("less than a minute ago")
       end
-
-      Timecop.return
     end
   end
 end
