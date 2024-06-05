@@ -20,4 +20,45 @@ module WeatherClient
     result[:cached_at] = cached[:cached_at]
     result
   end
+
+  def self.calculate_hi_lo temps
+    if temps[0]["isDaytime"]
+      state = :started_during_day_time
+    else
+      state = :started_during_night_time
+    end
+
+    hi = nil
+    lo = nil
+
+    temps.each_with_index do |temp, i|
+      if state == :started_during_day_time and i == 0
+          hi = temp["temperature"]
+
+      elsif state == :started_during_day_time and temp["isDaytime"]
+        hi = temp["temperature"] > hi ? temp["temperature"] : hi
+
+      elsif state == :started_during_day_time and not temp["isDaytime"]
+        state = :became_night_time
+        lo = temp["temperature"]
+
+      elsif state == :became_night_time and not temp["isDaytime"]
+        lo = temp["temperature"] < lo ? temp["temperature"] : lo
+
+      elsif state == :became_night_time and temp["isDaytime"]
+        break
+
+      elsif state == :started_during_night_time and i == 0
+        lo = temp["temperature"]
+
+      elsif state == :started_during_night_time and not temp["isDaytime"]
+        lo = temp["temperature"] < lo ? temp["temperature"] : lo
+
+      elsif state == :started_during_night_time and temp["isDaytime"]
+        break
+      end
+    end
+
+    {hi: hi, lo: lo}
+  end
 end
