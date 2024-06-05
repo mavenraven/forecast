@@ -17,8 +17,8 @@ RSpec.describe 'WeatherClient' do
     it 'returns the correct high and low for the day' do
       VCR.use_cassette("hi_lo_weather_for_lat_lon_zip_11211") do
         result = WeatherClient.get_cached_weather_from_lat_lon 40.71772, -73.95756
-        expect(result[:current_temp]).to eq(77)
-        expect(result[:forecast]).to eq("Partly Sunny")
+        expect(result[:hi]).to eq(81)
+        expect(result[:lo]).to eq(68)
       end
 
     end

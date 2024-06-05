@@ -17,6 +17,11 @@ module WeatherClient
     # Forecasts can come in as 'Chance Showers And Thunderstorms then Partly Cloudy', which isn't great for the UI layout.
     # TODO: better logic
     result[:forecast] = cached[:forecast_data]["properties"]["periods"][0]["shortForecast"].split[0..1].join(' ')
+    hi_lo = calculate_hi_lo cached[:forecast_data]["properties"]["periods"]
+
+    result[:hi] = hi_lo[:hi]
+    result[:lo] = hi_lo[:lo]
+
     result[:cached_at] = cached[:cached_at]
     result
   end
