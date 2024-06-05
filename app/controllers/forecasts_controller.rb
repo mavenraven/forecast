@@ -79,5 +79,7 @@ class ForecastsController < ApplicationController
     end
 
     @location = best_result.city.nil? ? best_result.county : best_result.city
+    @hi = @weather[:hi]
+    @lo = @weather[:lo] ? @weather[:lo] : '-'
   end
 end

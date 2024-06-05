@@ -52,9 +52,6 @@ There are a number of limitations and known issues:
   Google's geocoding API, but I didn't want to use any service that required a credit
   card or have more of a surface area than geocoding to avoid any possibility of surprise bills.
 
-* Similarly, none of the free weather APIs that I tested were that great. The one
-  that I settled on (`api.weather.gov`) doesn't offer the daily high / low.
-
 * The extended forecast is hardcoded placeholder values. This is possible to build with
   `api.weather.gov`, but I didn't have time to build this out.
 

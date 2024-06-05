@@ -98,6 +98,14 @@ describe "GET /<zip_code>" do
     end
   end
 
+  it "displays the hi and lo" do
+    VCR.use_cassette("hi_lo") do
+      get "/95013"
+      expect(response.body).to include("97°")
+      expect(response.body).to include("60°")
+    end
+  end
+
   it "redirects to index if not a valid 5 digit zip code" do
     get "/hello"
     expect(response).to redirect_to(forecasts_index_path)
