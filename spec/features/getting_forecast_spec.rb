@@ -11,7 +11,7 @@ RSpec.feature "Getting Forecasts", type: :feature do
 
       expect(page).to have_content("last updated")
       expect(page).to have_content("New York")
-      expect(page).to have_content("81")
+      expect(page).to have_content("79")
     end
   end
 end

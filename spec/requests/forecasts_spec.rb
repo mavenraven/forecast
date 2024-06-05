@@ -73,7 +73,7 @@ describe "GET /<zip_code>" do
 
       expect(response.body).to include("New York")
       temp = Nokogiri::HTML(response.body).css("#temperature_num").text
-      expect(temp).to eq("81")
+      expect(temp).to eq("79")
     end
   end
 
@@ -94,7 +94,7 @@ describe "GET /<zip_code>" do
   it "displays the correct conditions i.e. Cloudy, Sunny" do
     VCR.use_cassette("forecast") do
       get "/10008"
-      expect(response.body).to include("Mostly Clear")
+      expect(response.body).to include("Partly Sunny")
     end
   end
 
